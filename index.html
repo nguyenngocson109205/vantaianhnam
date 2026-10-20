@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Mạng Lưới Vận Tải &amp; Phân Phối 5 Lò Gạch Tuynel - Giao Tận Chân Công Trình</title>
+  <meta name="description" content="Single-page Web App phân phối gạch Tuynel liên minh 5 lò miền Nam: lọc lò trực tiếp, tính cước giao xe cẩu thời gian thực và tự động liên hệ Zalo/Hotline." />
+  <meta property="og:title" content="Mạng Lưới Vận Tải &amp; Phân Phối 5 Lò Gạch Tuynel" />
+  <meta property="og:description" content="Lấy gạch từ lò gần công trình nhất để tối ưu chi phí cước xe cẩu. Đội xe 18 chiếc sẵn sàng giao 24/7." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Fonts: Inter, Barlow Condensed, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN with configuration -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "brick": "#D35400",
+            "brick-dark": "#B33E00",
+            "brick-light": "#FFF3ED",
+            "primary": "#D35400",
+            "primary-hover": "#BA4600",
+            "primary-light": "#FFF3ED",
+            "zalo": "#0068FF",
+            "zalo-hover": "#0052CC",
+            "slate-heavy": "#1E293B",
+            "slate-steel": "#0F172A",
+            "surface": "#F6F9FF",
+            "surface-card": "#FFFFFF",
+            "on-surface": "#161C22",
+            "on-surface-variant": "#58413B",
+            "border-soft": "#E2E8F0",
+            "border-dark": "#334155"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            display: ["Barlow Condensed", "Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          },
+          borderRadius: {
+            "none": "0px",
+            "sm": "4px",
+            "md": "8px",
+            "xl": "12px",
+            "2xl": "16px",
+            "3xl": "24px"
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #F6F9FF;
+        color: #161C22;
+        font-family: 'Inter', sans-serif;
+        -webkit-tap-highlight-color: transparent;
+      }
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      background: #D35400;
+      height: 22px;
+      width: 22px;
+      border-radius: 50%;
+      cursor: pointer;
+      -webkit-appearance: none;
+      box-shadow: 0 2px 8px rgba(211, 84, 0, 0.45);
+      border: 2px solid #FFFFFF;
+    }
+    .industrial-border {
+      border: 1px solid #E2E8F0;
+    }
+  </style>
+  <link rel="stylesheet" href="/mobile.css" />
+</head>
+<body class="bg-surface text-on-surface antialiased pb-32">
+
+  <!-- Mobile Viewport Container Constraint: mobile-first max-w-lg (or full responsive on tablet/desktop) -->
+  <div class="max-w-lg mx-auto min-h-screen bg-surface flex flex-col relative shadow-2xl overflow-x-hidden border-x border-slate-200">
+
+    <!-- 1. TOP ANNOUNCEMENT BAR & DISPATCH STATUS (From Image 1 & Image 2) -->
+    <div class="bg-slate-steel text-white py-1 px-3 text-[11px] font-mono flex items-center justify-between border-b border-slate-800">
+      <div class="flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-amber-400 font-bold uppercase tracking-wider text-[10px]">ĐIỀU PHỐI 24/7: 18 XE CẨU SẴN SÀNG</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-1 text-slate-300 text-[10px]">
+        <span>TCVN 1450:2009 • ĐỦ SỐ LƯỢNG</span>
+      </div>
+    </div>
+
+    <!-- 2. STICKY TOP HEADER -->
+    <header class="sticky top-0 z-40 bg-surface-card/95 backdrop-blur-md border-b border-border-soft px-4 py-3 flex items-center justify-between shadow-sm">
+      <div class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-xl bg-brick flex items-center justify-center text-white shadow-md shadow-brick/25 shrink-0">
+          <span class="material-symbols-outlined text-[24px]">local_shipping</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span class="font-bold text-[15px] tracking-tight text-on-surface font-display uppercase leading-tight">LIÊN MINH 5 LÒ TUYNEL</span>
+            <span class="inline-flex items-center px-1.5 py-0.2 rounded-full text-[9px] font-bold bg-amber-100 text-amber-900 border border-amber-200">
+              18 XE CẨU
+            </span>
+          </div>
+          <span class="text-[11px] text-emerald-700 font-medium flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            Điều Phối Cước Xe Rẻ Nhất Miền Nam
+          </span>
+        </div>
+      </div>
+      
+      <!-- Top Hotline Call Button -->
+      <a class="inline-flex items-center gap-1.5 bg-brick-light hover:bg-orange-100 text-brick border border-brick/30 px-3 py-1.5 rounded-xl font-bold text-xs transition-colors shadow-sm" href="tel:0908123456" title="Gọi Hotline Điều Phối">
+        <span class="material-symbols-outlined text-[16px] animate-bounce">phone</span>
+        <span class="font-mono font-bold">0908.123.456</span>
+      </a>
+    </header>
+
+    <main class="flex flex-col gap-5 p-4">
+
+      <!-- 3. HERO INDUSTRIAL SECTION (From Image 1 & Image 2) -->
+      <section class="bg-surface-card rounded-2xl p-4.5 border border-border-soft shadow-sm flex flex-col gap-3.5 relative overflow-hidden">
+        <!-- Top Visual Tag -->
+        <div class="flex flex-wrap items-center gap-1.5">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-orange-50 text-brick rounded-full text-xs font-semibold border border-orange-200">
+            <span class="material-symbols-outlined text-[15px]">hub</span>
+            Đội Xe Vận Tải &amp; Phân Phối Gạch Trực Tiếp
+          </span>
+          <span class="px-2 py-0.5 bg-slate-100 text-slate-700 text-[10px] font-mono rounded font-semibold">
+            100% GIÁ TẠI LÒ
+          </span>
+        </div>
+
+        <!-- Main Title & Subtitle -->
+        <div class="flex flex-col gap-1.5">
+          <h1 class="text-[22px] sm:text-[24px] font-black text-on-surface tracking-tight leading-tight uppercase font-display">
+            MẠNG LƯỚI 5 LÒ GẠCH TUYNEL - <span class="text-brick">GIAO NHANH TẬN CHÂN CÔNG TRÌNH</span>
+          </h1>
+          <p class="text-xs text-on-surface-variant leading-relaxed font-normal">
+            Lấy gạch từ lò gần công trình nhất để tối ưu chi phí cước xe. Bỏ qua trung gian đại lý, cam kết không lo đứt hàng.
+          </p>
+        </div>
+
+        <!-- Hero Visual Showcase Image -->
+        <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-md group">
+          <img src="/assets/images/brick-delivery.jpg" width="1536" height="1024" fetchpriority="high" alt="Ảnh minh họa xe cẩu giao gạch tại bãi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent flex flex-col justify-end p-3 text-white">
+            <span class="text-[10px] font-mono uppercase tracking-wider bg-brick px-2 py-0.5 rounded self-start font-bold">
+              ĐỘI XE CẨU HẠ HÀNG TẬN SÀN
+            </span>
+            <p class="text-xs font-bold font-display uppercase tracking-wide mt-1">
+              Giao nhanh 2h - 4h • Không tốn công thợ bốc xếp
+            </p>
+          </div>
+        </div>
+
+        <p class="photo-note">Ảnh minh họa dịch vụ vận chuyển.</p>
+<!-- 3 Bullet Trust Points -->
+        <div class="flex flex-col gap-2 pt-1">
+          <div class="flex items-start gap-2.5">
+            <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+              <span class="material-symbols-outlined text-[13px] font-bold">check</span>
+            </div>
+            <span class="text-xs text-on-surface font-medium leading-snug">
+              <strong>5 Lò liên kết</strong> phủ khắp Đông Nam Bộ (Bình Dương, Tây Ninh, Đồng Nai, Long An, BR-VT).
+            </span>
+          </div>
+
+          <div class="flex items-start gap-2.5">
+            <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+              <span class="material-symbols-outlined text-[13px] font-bold">check</span>
+            </div>
+            <span class="text-xs text-on-surface font-medium leading-snug">
+              <strong>Đội xe cẩu 18 chiếc</strong> sẵn sàng giao 24/7, cần cẩu tự hạ tận lầu, sàn tầng hoặc ban công.
+            </span>
+          </div>
+
+          <div class="flex items-start gap-2.5">
+            <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+              <span class="material-symbols-outlined text-[13px] font-bold">check</span>
+            </div>
+            <span class="text-xs text-on-surface font-medium leading-snug">
+              <strong>Tiết kiệm 30-50% cước giao</strong> nhờ chọn lò phù hợp khu vực &amp; kết hợp ghép chuyến 2 chiều.
+            </span>
+          </div>
+        </div>
+
+        <nav class="hero-shortcuts" aria-label="Truy cập nhanh"><a href="#bang-tinh-cuoc"><span class="material-symbols-outlined">calculate</span>Tính giá giao tận nơi</a><a href="#kiln-tabs-section">Xem 8 sản phẩm<span class="material-symbols-outlined">arrow_downward</span></a></nav>
+<!-- 2 Large Prominent Action Buttons -->
+        <div class="grid grid-cols-2 gap-2.5 pt-1">
+          <a class="w-full inline-flex items-center justify-center gap-1.5 py-3 px-2 rounded-xl bg-brick hover:bg-brick-dark text-white font-bold text-xs shadow-md shadow-brick/25 transition-all active:scale-[0.98]" href="tel:0908123456">
+            <span class="material-symbols-outlined text-[18px]">phone_in_talk</span>
+            <span>Gọi Báo Giá Ngay</span>
+          </a>
+          <a class="w-full inline-flex items-center justify-center gap-1.5 py-3 px-2 rounded-xl bg-zalo hover:bg-zalo-hover text-white font-bold text-xs shadow-md shadow-zalo/25 transition-all active:scale-[0.98]" href="https://zalo.me/0908123456?text=Tôi%20cần%20báo%20giá%20gạch%20và%20cước%20xe%20cẩu%20vận%20chuyển%20về%20công%20trình" target="_blank" rel="noopener noreferrer">
+            <span class="material-symbols-outlined text-[18px]">near_me</span>
+            <span>Chat Zalo Gửi Vị Trí</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 6. SMART REAL-TIME FREIGHT ESTIMATOR WIDGET (Requirement #3) -->
+      <section class="bg-surface-card rounded-2xl p-4.5 border border-border-soft shadow-lg flex flex-col gap-4" id="bang-tinh-cuoc">
+        <!-- Widget Header -->
+        <div class="border-b border-border-soft pb-3">
+          <div class="inline-flex items-center gap-1.5 text-brick text-xs font-bold uppercase tracking-wider mb-1">
+            <span class="material-symbols-outlined text-[17px]">calculate</span>
+            Hệ Thống Điều Phối Vận Tải
+          </div>
+          <h2 class="text-lg font-bold text-on-surface font-display tracking-tight">Bộ Tính Tiền Cước Thực Tế</h2>
+          <p class="text-xs text-on-surface-variant mt-0.5">
+            Tính toán chi phí minh bạch: (Số thiên × Giá tại lò) + (Số thiên × km × Đơn giá cước)
+          </p>
+        </div>
+
+        <form class="flex flex-col gap-4" onsubmit="event.preventDefault();">
+          
+          <!-- Input 1: Chọn Lò Gạch & Loại Gạch -->
+          <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-semibold text-on-surface flex items-center justify-between" for="calc-product-select">
+              <span>1. Chọn loại gạch &amp; lò xuất xưởng:</span>
+              <span class="text-[10px] text-brick font-mono font-bold" id="calc-brick-weight-badge">1.35 kg/viên</span>
+            </label>
+            <div class="relative">
+              <select id="calc-product-select" class="w-full text-xs font-medium bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 pr-8 text-on-surface appearance-none focus:outline-none focus:ring-2 focus:ring-brick/25 focus:border-brick">
+                <!-- Dynamically populated from KILNS_DATA -->
+              </select>
+              <span class="material-symbols-outlined text-slate-400 absolute right-2.5 top-2.5 pointer-events-none text-[18px]">expand_more</span>
+            </div>
+          </div>
+
+          <!-- Input 2: Số Lượng Thiên Gạch (Mặc định 5 thiên, có nút tăng/giảm hoặc ô nhập & slider) -->
+          <div class="flex flex-col gap-1.5 bg-slate-50 p-3 rounded-xl border border-slate-200/80">
+            <div class="flex justify-between items-center text-xs">
+              <label class="font-semibold text-on-surface" for="calc-thien-input">2. Số lượng thiên gạch:</label>
+              <span class="font-bold text-brick text-xs bg-orange-100/70 px-2.5 py-0.5 rounded-full border border-orange-200 font-mono" id="quantity-display">
+                5 thiên (5.000 viên)
+              </span>
+            </div>
+
+            <!-- Stepper Controls (+ / -) and Direct Input -->
+            <div class="flex items-center gap-2 mt-1">
+              <button type="button" class="w-10 h-10 rounded-xl bg-white border border-slate-200 text-slate-700 font-bold text-lg flex items-center justify-center hover:bg-slate-100 active:scale-95 transition-all shadow-xs" onclick="adjustThien(-1)">
+                −
+              </button>
+              
+              <div class="relative flex-1">
+                <input type="number" inputmode="numeric" id="calc-thien-input" class="w-full text-center text-sm font-bold font-mono bg-white border border-slate-200 rounded-xl py-2 px-3 text-on-surface focus:outline-none focus:ring-2 focus:ring-brick/25 focus:border-brick" min="1" max="50" step="1" value="5" />
+                <span class="absolute right-3 top-2.5 text-[10px] text-slate-400 font-mono font-bold">THIÊN</span>
+              </div>
+
+              <button type="button" class="w-10 h-10 rounded-xl bg-white border border-slate-200 text-slate-700 font-bold text-lg flex items-center justify-center hover:bg-slate-100 active:scale-95 transition-all shadow-xs" onclick="adjustThien(1)">
+                +
+              </button>
+            </div>
+
+            <!-- Slider for Quick Adjustment -->
+            <div class="pt-2">
+              <input type="range" id="calc-slider" aria-label="Số thiên gạch" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-brick" min="1" max="50" step="1" value="5" />
+              <div class="flex justify-between text-[10px] text-slate-400 font-medium font-mono mt-1">
+                <span>1 thiên (1.000 v)</span>
+                <span>25 thiên</span>
+                <span>50 thiên (5 vạn)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Input 3: Vị Trí Giao Hàng & Khoảng Cách KM -->
+          <div class="flex flex-col gap-1.5">
+            <div class="flex items-center justify-between">
+              <label class="text-xs font-semibold text-on-surface" for="calc-area-select">3. Khu vực giao công trình &amp; khoảng cách (km):</label>
+              <span class="text-[10px] text-emerald-700 font-bold flex items-center gap-0.5">
+                <span class="material-symbols-outlined text-[13px]">near_me</span>
+                Gợi ý lộ trình
+              </span>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <div class="relative sm:col-span-2">
+                <select id="calc-area-select" class="w-full text-xs font-medium bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 pr-8 text-on-surface appearance-none focus:outline-none focus:ring-2 focus:ring-brick/25 focus:border-brick">
+                  <option value="14" data-name="TP. Thủ Đức / Quận 9 / Q.2" data-suggest-kiln="binhduong" selected>TP. Thủ Đức / Q.9 / Q.2 (~14 km)</option>
+                  <option value="8" data-name="Bình Dương (Dĩ An, Thuận An)" data-suggest-kiln="binhduong">Bình Dương (Dĩ An, Thuận An) (~8 km)</option>
+                  <option value="12" data-name="TP. Biên Hòa / KCN Amata" data-suggest-kiln="dongnai">TP. Biên Hòa / Amata (~12 km)</option>
+                  <option value="16" data-name="Củ Chi / Hóc Môn / Quận 12" data-suggest-kiln="tayninh">Củ Chi / Hóc Môn / Q.12 (~16 km)</option>
+                  <option value="18" data-name="Bình Chánh / Q.7 / Nhà Bè" data-suggest-kiln="longan">Bình Chánh / Q.7 / Nhà Bè (~18 km)</option>
+                  <option value="25" data-name="Long Thành / Sân Bay" data-suggest-kiln="dongnai">Long Thành / Sân Bay (~25 km)</option>
+                  <option value="35" data-name="Bà Rịa / Phú Mỹ" data-suggest-kiln="baria">Bà Rịa / TX. Phú Mỹ (~35 km)</option>
+                  <option value="custom" data-name="Tự nhập khoảng cách">Tùy chỉnh khoảng cách khác...</option>
+                </select>
+                <span class="material-symbols-outlined text-slate-400 absolute right-2.5 top-2.5 pointer-events-none text-[18px]">expand_more</span>
+              </div>
+
+              <!-- Custom KM Input -->
+              <div class="relative">
+                <input type="number" inputmode="decimal" id="calc-km-input" class="w-full text-xs font-bold font-mono bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 pr-8 text-on-surface focus:outline-none focus:ring-2 focus:ring-brick/25 focus:border-brick text-right" min="1" max="150" value="14" />
+                <span class="absolute right-2.5 top-2.5 text-[10px] text-slate-400 font-mono font-bold">KM</span>
+              </div>
+            </div>
+
+            <!-- Intelligent Kiln Dispatch Suggestion -->
+            <div class="mt-1 p-2.5 bg-emerald-50 border border-emerald-200/90 rounded-xl flex items-start gap-2 shadow-2xs" id="kiln-recommendation-box">
+              <span class="material-symbols-outlined text-emerald-700 text-[18px] shrink-0 mt-0.5">share_location</span>
+              <div class="flex flex-col text-[11px] leading-tight">
+                <span class="font-bold text-emerald-950" id="recom-title">Gợi ý tối ưu cước: Lò Tuynel 1 (Bình Dương)</span>
+                <span class="text-emerald-800 text-[10.5px] mt-0.5" id="recom-desc">
+                  Khoảng cách ngắn, đường xe cẩu thông thoáng. Đang có 4 xe cẩu sẵn chuyến hạ tận sàn.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Input 4: Chọn Hình Thức Hạ Hàng (Xe Cẩu vs Xe Ben) -->
+          <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-semibold text-on-surface">4. Chọn hình thức hạ hàng:</label>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="fleet-choice flex flex-col p-2.5 rounded-xl border border-brick bg-orange-50/70 cursor-pointer text-xs relative has-[:checked]:border-brick has-[:checked]:bg-orange-50 transition-colors">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-bold text-on-surface flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[15px] text-brick">precision_manufacturing</span>
+                    Xe Cẩu Tự Hạ
+                  </span>
+                  <input type="radio" name="fleet_mode" value="crane" checked class="accent-brick" onchange="calculateFreightEstimate()" />
+                </div>
+                <span class="text-[10.5px] text-on-surface-variant leading-tight">Cần cẩu hạ tận sàn tầng 1 - lầu 2; xác nhận vị trí hạ hàng với điều phối</span>
+              </label>
+
+              <label class="fleet-choice flex flex-col p-2.5 rounded-xl border border-slate-200 bg-slate-50 cursor-pointer text-xs relative has-[:checked]:border-brick has-[:checked]:bg-orange-50 transition-colors">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-bold text-on-surface flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[15px] text-slate-600">local_shipping</span>
+                    Xe Ben Tự Đổ
+                  </span>
+                  <input type="radio" name="fleet_mode" value="dump" class="accent-brick" onchange="calculateFreightEstimate()" />
+                </div>
+                <span class="text-[10.5px] text-on-surface-variant leading-tight">Phù hợp công trình có bãi đất trống để hạ hàng</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Real-Time Calculation Breakdown Telemetry Box (Requirement #3) -->
+          <div class="p-4 bg-slate-steel text-white rounded-xl flex flex-col gap-2.5 shadow-inner font-mono border border-slate-800">
+            <div class="flex items-center justify-between pb-1.5 border-b border-slate-800 text-[11px]">
+              <span class="font-display font-bold uppercase tracking-wider text-amber-400">BẢNG DỰ TOÁN THỰC TẾ</span>
+              <span class="text-slate-400 text-[10px]">ĐÃ TÍNH TRỌN GÓI</span>
+            </div>
+
+            <!-- 1. Tiền gạch tại lò -->
+            <div class="flex justify-between items-center text-xs">
+              <span class="text-slate-300 font-sans">Tiền gạch tại lò:</span>
+              <span class="font-bold text-white text-sm" id="calc-res-brick">4.250.000 đ</span>
+            </div>
+
+            <!-- 2. Tiền cước xe dự kiến -->
+            <div class="flex justify-between items-center text-xs">
+              <span class="text-slate-300 font-sans">Cước xe ước tính (<span id="calc-res-km">14</span> km):</span>
+              <span class="font-bold text-amber-400 text-sm" id="calc-res-freight">980.000 đ</span>
+            </div>
+
+            <!-- 3. TỔNG DỰ KIẾN (Requirement #3) -->
+            <div class="pt-2 border-t border-slate-800 flex items-baseline justify-between">
+              <div class="flex flex-col">
+                <span class="text-xs font-bold text-slate-200 font-sans uppercase">TỔNG DỰ KIẾN:</span>
+                <span class="text-[10px] text-slate-400 font-sans">Đơn giá về công trình: <strong class="text-amber-400" id="calc-res-per-unit">1.046 đ/viên</strong></span>
+              </div>
+              <span class="text-xl sm:text-2xl font-black text-brick-light font-display tracking-tight" id="calc-res-grand-total" aria-live="polite" aria-atomic="true">
+                5.230.000 đ
+              </span>
+            </div>
+          </div>
+
+          <p class="estimate-note">Giá tham khảo theo số lượng và khoảng cách bạn nhập. Điều phối xác nhận giá, khả năng tiếp cận công trình và lịch xe qua Zalo hoặc hotline trước khi giao.</p>
+<!-- Lock Quote / Dispatch Action Buttons -->
+          <div class="flex flex-col gap-2 pt-1">
+            <button type="button" class="w-full py-3.5 bg-brick hover:bg-brick-dark text-white rounded-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-brick/25 transition-all active:scale-[0.98]" onclick="handleLockQuoteAction()">
+              <span class="material-symbols-outlined text-[19px]">verified</span>
+              <span>Yêu Cầu Xác Nhận Giá &amp; Lịch Giao Qua Zalo</span>
+            </button>
+            
+            <a id="btn-zalo-quote" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 bg-zalo hover:bg-zalo-hover text-white rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-sm">
+              <span class="material-symbols-outlined text-[17px]">chat</span>
+              <span>Gửi Bảng Tính Này Qua Zalo Điều Phối</span>
+            </a>
+          </div>
+
+        </form>
+      </section>
+
+      <!-- 4. KILN PARTNER TABS FILTER SECTION (Requirement #2) -->
+      <section class="flex flex-col gap-2.5" id="kiln-tabs-section">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-brick text-[19px]">factory</span>
+            <h2 class="text-sm font-bold text-on-surface uppercase tracking-tight font-display">Chọn Lò Gạch Liên Kết</h2>
+          </div>
+          <span class="text-[11px] text-slate-500 font-medium">Vuốt ngang xem 5 lò</span>
+        </div>
+
+        <!-- Scrollable Tabs Filter Container -->
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 -mx-4 px-4 text-xs font-semibold" id="kiln-tabs-bar">
+          <button type="button" class="kiln-tab-btn shrink-0 px-3.5 py-2 rounded-full bg-brick text-white border border-brick shadow-sm transition-all" aria-pressed="true" data-kiln="all" onclick="filterByKiln('all', this)">
+            Tất cả các lò
+          </button>
+          <button type="button" class="kiln-tab-btn shrink-0 px-3.5 py-2 rounded-full bg-white text-on-surface-variant border border-border-soft hover:border-brick/40 transition-all" data-kiln="binhduong" onclick="filterByKiln('binhduong', this)">
+            Lò Bình Dương
+          </button>
+          <button type="button" class="kiln-tab-btn shrink-0 px-3.5 py-2 rounded-full bg-white text-on-surface-variant border border-border-soft hover:border-brick/40 transition-all" data-kiln="tayninh" onclick="filterByKiln('tayninh', this)">
+            Lò Tây Ninh
+          </button>
+          <button type="button" class="kiln-tab-btn shrink-0 px-3.5 py-2 rounded-full bg-white text-on-surface-variant border border-border-soft hover:border-brick/40 transition-all" data-kiln="dongnai" onclick="filterByKiln('dongnai', this)">
+            Lò Đồng Nai
+          </button>
+          <button type="button" class="kiln-tab-btn shrink-0 px-3.5 py-2 rounded-full bg-white text-on-surface-variant border border-border-soft hover:border-brick/40 transition-all" data-kiln="longan" onclick="filterByKiln('longan', this)">
+            Lò Long An
+          </button>
+          <button type="button" class="kiln-tab-btn shrink-0 px-3.5 py-2 rounded-full bg-white text-on-surface-variant border border-border-soft hover:border-brick/40 transition-all" data-kiln="baria" onclick="filterByKiln('baria', this)">
+            Lò Bà Rịa - VT
+          </button>
+        </div>
+
+        <!-- Dynamic Kiln Information Ribbon -->
+        <div class="bg-amber-50/90 border border-amber-200/80 rounded-xl p-2.5 flex items-start gap-2 shadow-xs" id="kiln-info-ribbon">
+          <span class="text-sm shrink-0">💡</span>
+          <div class="flex flex-col text-[11px] text-amber-900 leading-snug">
+            <span class="font-bold" id="kiln-ribbon-title">Mẹo tiết kiệm chi phí:</span>
+            <span id="kiln-ribbon-desc">Chọn lò gần công trình nhất để giảm <strong>30-50%</strong> phí vận chuyển xe cẩu. Liên hệ điều phối để kiểm tra chuyến xe chiều về phù hợp.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. PRODUCT CATALOG BY KILN (Rendered dynamically from KILNS_DATA) -->
+      <section class="flex flex-col gap-3.5">
+        <div class="flex justify-between items-baseline">
+          <div>
+            <h2 class="text-base font-bold text-on-surface tracking-tight font-display">Sản Phẩm &amp; Giá Xuất Xưởng</h2>
+            <p class="text-[11px] text-on-surface-variant">Giá gốc tại miệng lò, kèm thông tin tuyến giao cước rẻ nhất</p>
+          </div>
+          <span class="text-[11px] font-mono text-brick font-bold" id="product-count-badge">8 sản phẩm</span>
+        </div>
+
+        <!-- Dynamic Product Container -->
+        <div class="flex flex-col gap-4" id="products-container">
+          <!-- Will be rendered by renderProducts() from KILNS_DATA -->
+        </div>
+      </section>
+
+      <!-- 7. DỊCH VỤ VẬN TẢI & GHÉP CHUYẾN 2 CHIỀU (From Image 2 & Image 9) -->
+      <section class="bg-surface-card rounded-2xl p-4.5 border border-border-soft shadow-sm flex flex-col gap-3.5">
+        <div class="flex flex-col gap-1">
+          <div class="inline-flex items-center gap-1.5 text-brick text-[11px] font-bold uppercase tracking-wider">
+            <span class="material-symbols-outlined text-[16px]">local_shipping</span>
+            Dịch Vụ Logistics Công Trình Chuyên Tuyến
+          </div>
+          <h2 class="text-base font-bold text-on-surface leading-tight font-display uppercase">
+            Đội Xe Vận Tải Chở Hàng &amp; Ghép Chuyến Công Trình
+          </h2>
+          <p class="text-xs text-on-surface-variant">
+            Tận dụng đội xe tải &amp; xe cẩu 18 chiếc đi - về liên tục để giảm tối đa cước xe cho khách hàng
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-2.5">
+          <!-- Card 1 -->
+          <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl bg-orange-100 text-brick flex items-center justify-center shrink-0 mt-0.5">
+              <span class="material-symbols-outlined text-[22px]">precision_manufacturing</span>
+            </div>
+            <div class="flex flex-col">
+              <h3 class="font-bold text-xs text-on-surface">Đội xe tải 5 tấn - 15 tấn có cần cẩu tự hạ</h3>
+              <p class="text-[11px] text-on-surface-variant mt-0.5 leading-relaxed">
+                Chuyên chở gạch, đá, bốc dỡ tận lầu, ban công hoặc sàn thi công cao, tiết kiệm 100% công bốc vác thợ.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-100 text-zalo flex items-center justify-center shrink-0 mt-0.5">
+              <span class="material-symbols-outlined text-[22px]">category</span>
+            </div>
+            <div class="flex flex-col">
+              <h3 class="font-bold text-xs text-on-surface">Nhận chở đa dạng vật tư xây dựng</h3>
+              <p class="text-[11px] text-on-surface-variant mt-0.5 leading-relaxed">
+                Nhận vận chuyển trọn gói cát, đá, xi măng bao, sắt thép cây, giàn giáo, cốp pha với cước xưởng gốc.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5">
+              <span class="material-symbols-outlined text-[22px]">published_with_changes</span>
+            </div>
+            <div class="flex flex-col">
+              <h3 class="font-bold text-xs text-on-surface">Ghép chuyến 2 chiều giá rẻ (Tiết kiệm 40%)</h3>
+              <p class="text-[11px] text-on-surface-variant mt-0.5 leading-relaxed">
+                Tận dụng các chiều xe về rỗng tuyến Bình Dương, Đồng Nai, Tây Ninh, Long An về TP.HCM để giảm giá cước kịch khung.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Button For Logistics -->
+        <div class="pt-1">
+          <a class="w-full py-3 px-4 bg-slate-steel hover:bg-slate-800 text-white rounded-xl font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-2 shadow-md transition-all active:scale-[0.98]" href="tel:0908123456">
+            <span class="material-symbols-outlined text-[18px] text-amber-400">rv_hookup</span>
+            <span>Đặt Xe Chở Hàng / Ghép Chuyến Ngay</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 8. VALUE PROPOSITIONS & FACTORY COMMITMENTS -->
+      <section class="flex flex-col gap-3">
+        <h2 class="text-base font-bold text-on-surface font-display uppercase tracking-tight">Cam Kết Từ Mạng Lưới 5 Lò Tuynel</h2>
+        <div class="grid grid-cols-1 gap-2.5">
+          <div class="bg-surface-card p-3 rounded-xl border border-border-soft shadow-sm flex items-start gap-3">
+            <div class="w-9 h-9 rounded-xl bg-orange-100 text-brick flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-[20px]">pin_drop</span>
+            </div>
+            <div class="flex flex-col">
+              <h3 class="font-bold text-xs text-on-surface">Không Lo Hết Hàng - Điều Phối Linh Hoạt</h3>
+              <p class="text-[11px] text-on-surface-variant mt-0.5 leading-relaxed">
+                Nếu 1 lò bảo trì hoặc thiếu khuôn gạch, 4 lò còn lại ngay lập tức bù hàng đảm bảo công trình không bao giờ dừng thi công.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-surface-card p-3 rounded-xl border border-border-soft shadow-sm flex items-start gap-3">
+            <div class="w-9 h-9 rounded-xl bg-blue-100 text-zalo flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-[20px]">local_shipping</span>
+            </div>
+            <div class="flex flex-col">
+              <h3 class="font-bold text-xs text-on-surface">Đội Xe Cẩu Chuyên Nghiệp Tự Vận Hành</h3>
+              <p class="text-[11px] text-on-surface-variant mt-0.5 leading-relaxed">
+                Tài xế lành nghề trên 5 năm kinh nghiệm luồn lách hẻm nhỏ đô thị và hạ gạch an toàn, chuẩn xác từng kiện pallet.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 9. REVIEWS & CONTRACTOR TESTIMONIALS -->
+      <section class="flex flex-col gap-3">
+        <h2 class="text-base font-bold text-on-surface font-display uppercase tracking-tight">Đánh Giá Từ Nhà Thầu &amp; Đơn Vị Vận Tải</h2>
+        <div class="grid grid-cols-1 gap-2.5">
+          <!-- Review 1 -->
+          <div class="bg-surface-card p-3.5 rounded-xl border border-border-soft shadow-sm flex flex-col gap-2">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center text-on-surface font-bold text-[11px]">
+                  Q.V
+                </div>
+                <div>
+                  <h4 class="font-bold text-xs text-on-surface">Anh Quốc Việt</h4>
+                  <p class="text-[10px] text-on-surface-variant">Chỉ huy trưởng công trình căn hộ mini - TP. Thủ Đức</p>
+                </div>
+              </div>
+              <div class="flex text-amber-400">
+                <span class="material-symbols-outlined text-[15px] fill-current">star</span>
+                <span class="material-symbols-outlined text-[15px] fill-current">star</span>
+                <span class="material-symbols-outlined text-[15px] fill-current">star</span>
+                <span class="material-symbols-outlined text-[15px] fill-current">star</span>
+                <span class="material-symbols-outlined text-[15px] fill-current">star</span>
+              </div>
+            </div>
+            <p class="text-[11px] text-on-surface-variant leading-relaxed italic bg-slate-50 p-2 rounded-lg border border-slate-100">
+              “Công trình mình nhận gạch từ Lò Bình Dương, điều xe cẩu hạ lên lầu 2 rất gọn. Cước rẻ hơn đặt đại lý bán lẻ 400k/chuyến mà gạch đanh chắc, vuông vắn.”
+            </p>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="bg-surface-card p-3.5 rounded-xl border border-border-soft shadow-sm flex flex-col gap-2">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center text-on-surface font-bold text-[11px]">
+                  T.H
+                </div>
+                <div>
+                  <h4 class="font-bold text-xs text-on-surface">Công ty XD Thịnh Hưng</h4>
+                  <p class="text-[10px] text-on-surface-variant">Tổng thầu cụm nhà xưởng - Dĩ An &amp; Biên Hòa</p>
+                </div>
+              </div>
+              <div class="flex text-amber-400">
+                <span class="material-symbols-outlined text-[15px] fill-current">star</span>
+                <span class="material-symbols-outlined text-[15px] fill-current">star</span>
+                <span class="material-symbols-outlined text-[15px] fill-current">star</span>
+                <span class="material-symbols-outlined text-[15px] fill-current">star</span>
+                <span class="material-symbols-outlined text-[15px] fill-current">star</span>
+              </div>
+            </div>
+            <p class="text-[11px] text-on-surface-variant leading-relaxed italic bg-slate-50 p-2 rounded-lg border border-slate-100">
+              “Tiện nhất là đợt thiếu hàng lò này thì mạng lưới tự động chuyển sang lò Đồng Nai chở qua ngay trong buổi chiều, thợ không bị đứng chờ gạch một tiếng nào.”
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="pt-4 pb-2 border-t border-border-soft text-center flex flex-col gap-1 text-xs text-on-surface-variant">
+        <p class="font-bold text-on-surface text-[12px] font-display uppercase">HỆ THỐNG LIÊN MINH VẬN TẢI &amp; PHÂN PHỐI 5 LÒ TUYNEL</p>
+        <p class="text-[10.5px]">Trung tâm điều phối: Vành Đai 3 &amp; QL1A - Thủ Đức - Bình Dương - Đồng Nai</p>
+        <p class="text-[10px] text-slate-400 font-mono">© 2026 Mạng Lưới Phân Phối Gạch Tuynel Miền Nam. Hotline: 0908.123.456</p>
+      </footer>
+    </main>
+
+    <!-- 10. STICKY BOTTOM BAR (Requirement #4: "Thanh công cụ cố định đáy màn hình (Bottom Sticky Bar): Có 2 nút bấm to rõ gồm Gọi Hotline (tel:0908123456) và Chat Zalo Báo Vị Trí") -->
+    <div class="bottom-actions fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-border-soft shadow-[0_-4px_24px_rgba(0,0,0,0.12)] py-2.5 px-3">
+      <div class="max-w-lg mx-auto grid grid-cols-2 gap-2.5">
+        <!-- Nút Gọi Hotline -->
+        <a class="flex items-center justify-center gap-2 py-3 px-3 rounded-xl bg-brick hover:bg-brick-dark text-white font-bold text-xs transition-transform active:scale-95 shadow-md shadow-brick/25" href="tel:0908123456" title="Gọi Hotline 0908.123.456">
+          <span class="material-symbols-outlined text-[20px] animate-pulse">call</span>
+          <span class="truncate font-display uppercase tracking-wider text-[13px]">Gọi Hotline</span>
+        </a>
+
+        <!-- Nút Chat Zalo Báo Vị Trí -->
+        <a class="flex items-center justify-center gap-2 py-3 px-3 rounded-xl bg-zalo hover:bg-zalo-hover text-white font-bold text-xs transition-transform active:scale-95 shadow-md shadow-zalo/25" href="https://zalo.me/0908123456?text=Tôi%20cần%20báo%20vị%20trí%20công%20trình%20để%20nhận%20báo%20giá%20gạch%20và%20cước%20xe%20cẩu" target="_blank" rel="noopener noreferrer" title="Chat Zalo Báo Vị Trí">
+          <span class="material-symbols-outlined text-[20px]">near_me</span>
+          <span class="truncate font-display uppercase tracking-wider text-[13px]">Chat Zalo Báo Vị Trí</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JAVASCRIPT THUẦN (Requirement #1: const KILNS_DATA đặt ngay đầu thẻ <script>) -->
+  <script>
+    // ==========================================
+    // 1. QUẢN LÝ DỮ LIỆU TẬP TRUNG (KILNS_DATA)
+    // ==========================================
+    const KILNS_DATA = [
+      {
+        id: "binhduong",
+        name: "Lò Tuynel 1 - Bình Dương",
+        shortName: "Lò Bình Dương",
+        location: "Tân Uyên & Bến Cát, Bình Dương",
+        optimalArea: "TP.HCM, TP. Thủ Đức, Dĩ An, Thuận An",
+        baseKm: 14,
+        ratePerThienKm: 14000,
+        activeTrucks: "6 xe cẩu trực chiến",
+        capacity: "150.000 viên/ngày",
+        ribbonTip: "Đang có 6 xe cẩu trực tại Dĩ An - Thuận An, giao về TP.HCM & Thủ Đức chỉ trong 2 giờ.",
+        products: [
+          {
+            id: "bd-4lo",
+            name: "Gạch Ống 4 Lỗ Tuynel Loại 1",
+            dimensions: "8 × 8 × 18 cm",
+            weight: 1.35,
+            price: 850,
+            priceDisplay: "830 - 870 đ/viên",
+            unit: "viên",
+            tag: "Bán Chạy Nhất",
+            tagColor: "bg-emerald-700",
+            image: "/assets/aistudio/Image_4_43079f22.jpeg",
+            specs: [
+              { label: "Quy cách", value: "8 × 8 × 18 cm (1.35 kg/v)" },
+              { label: "Cường độ nén", value: "Mác M75 - M100 Tiêu Chuẩn" },
+              { label: "Định mức xây", value: "60 viên/m² tường 10" },
+              { label: "Công suất cấp", value: "120.000 viên/ngày (luôn sẵn hàng)" }
+            ],
+            optimalNote: "Tối ưu cước: Giao rẻ nhất đến TP.HCM, Thủ Đức & Bình Dương"
+          },
+          {
+            id: "bd-demi",
+            name: "Gạch Demi (Gạch Nửa Đúc Khuôn)",
+            dimensions: "8 × 8 × 9 cm",
+            weight: 0.70,
+            price: 450,
+            priceDisplay: "430 - 460 đ/viên",
+            unit: "viên",
+            tag: "Tiết Kiệm Công Cắt",
+            tagColor: "bg-amber-600",
+            image: "/assets/aistudio/Image_5_5ec95612.jpeg",
+            specs: [
+              { label: "Kích thước", value: "8 × 8 × 9 cm (0.7 kg/v)" },
+              { label: "Lợi ích thợ", value: "Tăng tốc độ xây 20%, không hao hụt chèn góc" },
+              { label: "Đóng gói", value: "1.200 viên / pallet niêm phong" }
+            ],
+            optimalNote: "Tối ưu cước: Ghép xe cùng gạch 4 lỗ tính cước đồng bộ"
+          }
+        ]
+      },
+      {
+        id: "tayninh",
+        name: "Lò Tuynel 2 - Tây Ninh",
+        shortName: "Lò Tây Ninh",
+        location: "Trảng Bàng, Tây Ninh (Giáp Củ Chi)",
+        optimalArea: "Củ Chi, Hóc Môn, Quận 12, Bình Chánh",
+        baseKm: 16,
+        ratePerThienKm: 13500,
+        activeTrucks: "4 xe cẩu trực chiến",
+        capacity: "120.000 viên/ngày",
+        ribbonTip: "Tuyến QL22 và Vành Đai 3 thuận tiện, cước giao Củ Chi và Hóc Môn rẻ hơn 25%.",
+        products: [
+          {
+            id: "tn-4lo",
+            name: "Gạch Ống 4 Lỗ Đất Sét Tây Ninh",
+            dimensions: "8 × 8 × 18 cm",
+            weight: 1.30,
+            price: 820,
+            priceDisplay: "810 - 850 đ/viên",
+            unit: "viên",
+            tag: "Giá Miệng Lò Rẻ",
+            tagColor: "bg-brick",
+            image: "/assets/aistudio/Image_4_43079f22.jpeg",
+            specs: [
+              { label: "Quy cách", value: "8 × 8 × 18 cm (1.30 kg/v)" },
+              { label: "Đặc tính", value: "Đất sét dẻo mịn nung già, màu đỏ sẫm đồng đều" },
+              { label: "Định mức xây", value: "60 viên / m² tường" }
+            ],
+            optimalNote: "Tối ưu cước: Giao rẻ tuyến Củ Chi, Hóc Môn, Bình Chánh, Q.12"
+          },
+          {
+            id: "tn-demi",
+            name: "Gạch Nửa Demi Đúc Tây Ninh",
+            dimensions: "8 × 8 × 9 cm",
+            weight: 0.68,
+            price: 430,
+            priceDisplay: "420 - 450 đ/viên",
+            unit: "viên",
+            tag: "Chuẩn Kích Thước",
+            tagColor: "bg-indigo-600",
+            image: "/assets/aistudio/Image_5_5ec95612.jpeg",
+            specs: [
+              { label: "Kích thước", value: "8 × 8 × 9 cm (0.68 kg/v)" },
+              { label: "Ưu điểm", value: "Giảm hao hụt cắt gạch, vuông vắn tuyệt đối" }
+            ],
+            optimalNote: "Tối ưu cước: Ghép xe trực tiếp từ lò Tây Ninh"
+          }
+        ]
+      },
+      {
+        id: "dongnai",
+        name: "Lò Tuynel 3 - Đồng Nai",
+        shortName: "Lò Đồng Nai",
+        location: "Vĩnh Cửu & Trảng Bom, Đồng Nai",
+        optimalArea: "Biên Hòa, Long Thành, Amata & Quận 9",
+        baseKm: 12,
+        ratePerThienKm: 14500,
+        activeTrucks: "5 xe cẩu trực chiến",
+        capacity: "180.000 viên/ngày",
+        ribbonTip: "Chuyên cung cấp mác cao M100 - M150 cho công trình nhà xưởng và biệt thự móng sâu.",
+        products: [
+          {
+            id: "dn-dac",
+            name: "Gạch Đơ / Gạch Đặc Móng Chịu Lực",
+            dimensions: "6 × 10.5 × 21 cm",
+            weight: 2.10,
+            price: 1150,
+            priceDisplay: "1.100 - 1.180 đ/viên",
+            unit: "viên",
+            tag: "Mác Cao M100+",
+            tagColor: "bg-slate-800",
+            image: "/assets/aistudio/Image_3_d36ecabb.jpeg",
+            specs: [
+              { label: "Kích thước", value: "6 × 10.5 × 21 cm (2.1 kg/v)" },
+              { label: "Cường độ nén", value: "Mác M100 - M150 siêu chịu tải" },
+              { label: "Công năng", value: "Chống thấm móng & bể phốt tuyệt đối" },
+              { label: "Ứng dụng", value: "Xây móng nhà phố, cột hầm chịu lực" }
+            ],
+            optimalNote: "Tối ưu cước: Giao nhanh Biên Hòa, Long Thành, Amata & Quận 9"
+          },
+          {
+            id: "dn-4lo",
+            name: "Gạch Ống 4 Lỗ Đồng Nai Đanh Chắc",
+            dimensions: "8 × 8 × 18 cm",
+            weight: 1.38,
+            price: 860,
+            priceDisplay: "840 - 880 đ/viên",
+            unit: "viên",
+            tag: "Gạch Đanh Lửa",
+            tagColor: "bg-brick",
+            image: "/assets/aistudio/Image_4_43079f22.jpeg",
+            specs: [
+              { label: "Quy cách", value: "8 × 8 × 18 cm (1.38 kg/v)" },
+              { label: "Nhiệt độ nung", value: "1.050°C tiếng gõ đanh thanh ngân" }
+            ],
+            optimalNote: "Tối ưu cước: Tuyến Xa Lộ Hà Nội & Vành Đai 3"
+          }
+        ]
+      },
+      {
+        id: "longan",
+        name: "Lò Tuynel 4 - Long An",
+        shortName: "Lò Long An",
+        location: "Bến Lức & Cần Giuộc, Long An",
+        optimalArea: "Bình Chánh, Quận 7, Nhà Bè & Long An",
+        baseKm: 15,
+        ratePerThienKm: 15000,
+        activeTrucks: "3 xe cẩu trực chiến",
+        capacity: "100.000 viên/ngày",
+        ribbonTip: "Phục vụ chuyên tuyến khu đô thị Nam Sài Gòn, Bình Chánh, Nhà Bè.",
+        products: [
+          {
+            id: "la-6lo",
+            name: "Gạch 6 Lỗ Cách Âm - Cách Nhiệt",
+            dimensions: "19.5 × 13.5 × 9 cm",
+            weight: 2.75,
+            price: 1500,
+            priceDisplay: "1.450 - 1.550 đ/viên",
+            unit: "viên",
+            tag: "Cách Âm Tốt",
+            tagColor: "bg-teal-800",
+            image: "/assets/images/six-hole.jpg",
+            specs: [
+              { label: "Kích thước", value: "19.5 × 13.5 × 9 cm (2.75 kg/v)" },
+              { label: "Khả năng", value: "Giảm 45% tiếng ồn & chống nóng tường bao" },
+              { label: "Ứng dụng", value: "Biệt thự, khách sạn, căn hộ cao cấp" }
+            ],
+            optimalNote: "Tối ưu cước: Giao rẻ nhất Bình Chánh, Quận 7, Nhà Bè & Long An"
+          }
+        ]
+      },
+      {
+        id: "baria",
+        name: "Lò Tuynel 5 - Bà Rịa - VT",
+        shortName: "Lò Bà Rịa",
+        location: "Tân Thành & Châu Đức, Bà Rịa - Vũng Tàu",
+        optimalArea: "TX. Phú Mỹ, TP. Bà Rịa, Vũng Tàu",
+        baseKm: 18,
+        ratePerThienKm: 16000,
+        activeTrucks: "3 xe cẩu trực chiến",
+        capacity: "90.000 viên/ngày",
+        ribbonTip: "Chuyên gạch bền nước mặn và paver tự chèn chịu tải nặng cho kho cảng.",
+        products: [
+          {
+            id: "br-paver",
+            name: "Gạch Tự Chèn Chịu Lực M250",
+            dimensions: "10 × 20 × 6 cm",
+            weight: 3.10,
+            price: 3200,
+            priceDisplay: "3.100 - 3.300 đ/viên",
+            unit: "viên",
+            tag: "M250 Siêu Tải Trọng",
+            tagColor: "bg-slate-900",
+            image: "/assets/images/paver.jpg",
+            specs: [
+              { label: "Kích thước", value: "10 × 20 × 6 cm (3.1 kg/v)" },
+              { label: "Cường độ nén", value: "M250 công nghiệp, chịu xe container" },
+              { label: "Ứng dụng", value: "Sân bãi, bến cảng, xưởng công nghiệp" }
+            ],
+            optimalNote: "Tối ưu cước: Cụm KCN Phú Mỹ & Cái Mép"
+          }
+        ]
+      }
+    ];
+
+    // Global application state
+    let currentSelectedKiln = 'all';
+    const HOTLINE_NUMBER = '0908123456';
+    const HOTLINE_DISPLAY = '0908.123.456';
+
+    // ==========================================
+    // 2. RENDER PRODUCTS & TABS FILTER
+    // ==========================================
+    const productsContainer = document.getElementById('products-container');
+    const productCountBadge = document.getElementById('product-count-badge');
+    const calcProductSelect = document.getElementById('calc-product-select');
+    const kilnInfoRibbon = document.getElementById('kiln-info-ribbon');
+    const kilnRibbonTitle = document.getElementById('kiln-ribbon-title');
+    const kilnRibbonDesc = document.getElementById('kiln-ribbon-desc');
+
+    function renderProducts(kilnFilter = 'all') {
+      currentSelectedKiln = kilnFilter;
+      productsContainer.innerHTML = '';
+      
+      let allFilteredProducts = [];
+      let totalCount = 0;
+
+      KILNS_DATA.forEach(kiln => {
+        if (kilnFilter === 'all' || kiln.id === kilnFilter) {
+          kiln.products.forEach(prod => {
+            allFilteredProducts.push({
+              ...prod,
+              kilnId: kiln.id,
+              kilnName: kiln.name,
+              kilnShortName: kiln.shortName,
+              kilnOptimal: kiln.optimalArea,
+              ratePerThienKm: kiln.ratePerThienKm
+            });
+            totalCount++;
+          });
+        }
+      });
+
+      productCountBadge.textContent = `${totalCount} sản phẩm`;
+
+      allFilteredProducts.forEach(item => {
+        // Build Zalo pre-filled text (Requirement #4)
+        const zaloMessage = `Tôi cần tư vấn giá ${item.name} từ ${item.kilnName} giao về công trình...`;
+        const zaloUrl = `https://zalo.me/${HOTLINE_NUMBER}?text=${encodeURIComponent(zaloMessage)}`;
+
+        // Build Specs Rows
+        let specsHtml = '';
+        if (item.specs && item.specs.length > 0) {
+          specsHtml = item.specs.map(s => `
+            <div class="flex justify-between py-0.5">
+              <span class="text-slate-500">${s.label}:</span>
+              <span class="font-semibold text-on-surface text-right">${s.value}</span>
+            </div>
+          `).join('');
+        }
+
+        const card = document.createElement('div');
+        card.className = 'product-item bg-surface-card rounded-2xl overflow-hidden border border-border-soft shadow-sm flex flex-col hover:shadow-md transition-shadow';
+        card.setAttribute('data-kiln', item.kilnId);
+        card.setAttribute('data-product-id', item.id);
+
+        card.innerHTML = `
+          <!-- Product Image & Tag -->
+          <div class="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden">
+            <img src="${item.image}" width="1200" height="900" loading="lazy" decoding="async" alt="Ảnh minh họa ${item.name}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+            <div class="absolute top-2.5 left-2.5 flex flex-wrap gap-1.5">
+              <span class="bg-brick text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm font-mono">
+                [${item.kilnShortName}]
+              </span>
+              <span class="${item.tagColor} text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+                ${item.tag}
+              </span>
+            </div>
+          </div>
+
+          <!-- Product Details -->
+          <div class="p-3.5 flex flex-col gap-2.5">
+            <div class="product-heading">
+              <h3 class="font-bold text-sm text-on-surface font-display leading-tight">${item.name}</h3>
+              <span class="product-price text-brick font-extrabold text-sm font-mono whitespace-nowrap ml-2">${item.priceDisplay}</span>
+            </div>
+
+            <!-- Route Optimization Badge -->
+            <div class="bg-emerald-50/80 border border-emerald-200/60 p-2 rounded-xl text-xs text-emerald-950 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px] text-emerald-700 shrink-0">navigation</span>
+              <span class="optimal-note text-[11px] font-medium">${item.optimalNote}</span>
+            </div>
+
+            <!-- Technical Specs Box -->
+            <details class="product-details"><summary>Thông số &amp; quy cách</summary>${specsHtml}<p>Ảnh minh họa sản phẩm.</p></details>
+
+            <!-- Action Buttons: Tính Cước Lò Này & Hỏi Giá (Zalo) (Requirement #4) -->
+            <div class="product-actions flex items-center gap-2 pt-0.5">
+              <button type="button" class="flex-1 py-2 px-2.5 bg-slate-100 hover:bg-slate-200 text-on-surface font-semibold text-xs rounded-xl transition-colors text-center flex items-center justify-center gap-1 active:scale-95" onclick="selectProductForCalc('${item.id}', '${item.kilnId}')">
+                <span class="material-symbols-outlined text-[15px] text-brick">calculate</span>
+                <span>Tính Cước Lò Này</span>
+              </button>
+              
+              <a href="${zaloUrl}" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 px-2.5 bg-zalo hover:bg-zalo-hover text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-1 shadow-sm transition-colors active:scale-95">
+                <span class="material-symbols-outlined text-[15px]">chat</span>
+                <span>Hỏi Giá (Zalo)</span>
+              </a>
+            </div>
+          </div>
+        `;
+        productsContainer.appendChild(card);
+      });
+
+      // Update Ribbon Tip
+      if (kilnFilter === 'all') {
+        kilnRibbonTitle.textContent = "Mẹo tiết kiệm chi phí:";
+        kilnRibbonDesc.innerHTML = "Chọn lò gần công trình nhất để giảm <strong>30-50%</strong> phí vận chuyển xe cẩu. Liên hệ điều phối để kiểm tra chuyến xe chiều về phù hợp.";
+      } else {
+        const foundKiln = KILNS_DATA.find(k => k.id === kilnFilter);
+        if (foundKiln) {
+          kilnRibbonTitle.textContent = `${foundKiln.name}:`;
+          kilnRibbonDesc.innerHTML = `${foundKiln.ribbonTip} Khu vực cước tối ưu: <strong>${foundKiln.optimalArea}</strong>.`;
+        }
+      }
+    }
+
+    // Filter by Kiln Tab (Requirement #2)
+    function filterByKiln(kilnId, btnElement) {
+      // Toggle button styles
+      document.querySelectorAll('.kiln-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-brick', 'text-white', 'border-brick');
+        btn.classList.add('bg-white', 'text-on-surface-variant', 'border-border-soft');
+        btn.setAttribute('aria-pressed', 'false');
+      });
+
+      if (btnElement) {
+        btnElement.classList.add('bg-brick', 'text-white', 'border-brick');
+        btnElement.classList.remove('bg-white', 'text-on-surface-variant', 'border-border-soft');
+        btnElement.setAttribute('aria-pressed', 'true');
+      }
+
+      renderProducts(kilnId);
+      populateCalculatorProductDropdown(kilnId);
+    }
+
+    // ==========================================
+    // 3. SMART FREIGHT CALCULATOR LOGIC (Requirement #3)
+    // ==========================================
+    const calcThienInput = document.getElementById('calc-thien-input');
+    const calcSlider = document.getElementById('calc-slider');
+    const quantityDisplay = document.getElementById('quantity-display');
+    const calcAreaSelect = document.getElementById('calc-area-select');
+    const calcKmInput = document.getElementById('calc-km-input');
+    const calcBrickWeightBadge = document.getElementById('calc-brick-weight-badge');
+
+    const recomTitle = document.getElementById('recom-title');
+    const recomDesc = document.getElementById('recom-desc');
+
+    const calcResBrick = document.getElementById('calc-res-brick');
+    const calcResFreight = document.getElementById('calc-res-freight');
+    const calcResKm = document.getElementById('calc-res-km');
+    const calcResGrandTotal = document.getElementById('calc-res-grand-total');
+    const calcResPerUnit = document.getElementById('calc-res-per-unit');
+    const btnZaloQuote = document.getElementById('btn-zalo-quote');
+
+    // Populate dropdown with all or filtered products
+    function populateCalculatorProductDropdown(preferredKilnId = null) {
+      const prevVal = calcProductSelect.value;
+      calcProductSelect.innerHTML = '';
+
+      KILNS_DATA.forEach(kiln => {
+        const group = document.createElement('optgroup');
+        group.label = `🏭 ${kiln.name}`;
+        
+        kiln.products.forEach(p => {
+          const opt = document.createElement('option');
+          opt.value = p.id;
+          opt.textContent = `${p.name} - ${p.price.toLocaleString('vi-VN')} đ/viên`;
+          opt.setAttribute('data-price', p.price);
+          opt.setAttribute('data-weight', p.weight);
+          opt.setAttribute('data-kiln-id', kiln.id);
+          opt.setAttribute('data-kiln-name', kiln.name);
+          opt.setAttribute('data-product-name', p.name);
+          opt.setAttribute('data-rate', kiln.ratePerThienKm);
+          group.appendChild(opt);
+        });
+
+        calcProductSelect.appendChild(group);
+      });
+
+      // Try restoring previous value, or pick first from preferred kiln
+      if (preferredKilnId && preferredKilnId !== 'all') {
+        const matchingOpt = Array.from(calcProductSelect.options).find(o => o.getAttribute('data-kiln-id') === preferredKilnId);
+        if (matchingOpt) {
+          calcProductSelect.value = matchingOpt.value;
+        }
+      } else if (prevVal) {
+        calcProductSelect.value = prevVal;
+      }
+
+      calculateFreightEstimate();
+    }
+
+    // Format VND helper
+    function formatVND(num) {
+      return new Intl.NumberFormat('vi-VN').format(Math.round(num)) + ' đ';
+    }
+
+    // Main real-time calculation function
+    function calculateFreightEstimate() {
+      const selectedOption = calcProductSelect.options[calcProductSelect.selectedIndex];
+      if (!selectedOption) return;
+
+      const unitPrice = parseFloat(selectedOption.getAttribute('data-price')) || 850;
+      const unitWeight = parseFloat(selectedOption.getAttribute('data-weight')) || 1.35;
+      const kilnName = selectedOption.getAttribute('data-kiln-name') || 'Lò Tuynel';
+      const productName = selectedOption.getAttribute('data-product-name') || 'Gạch Tuynel';
+      const ratePerKm = parseFloat(selectedOption.getAttribute('data-rate')) || 14000;
+
+      // Update unit weight label
+      calcBrickWeightBadge.textContent = `${unitWeight.toFixed(2)} kg/viên`;
+
+      // Thien count
+      const thien = Math.min(50, Math.max(1, Math.round(parseFloat(calcThienInput.value) || 1)));
+      const totalPcs = Math.round(thien * 1000);
+
+      // Sync slider
+      calcSlider.value = thien;
+      quantityDisplay.textContent = `${thien} thiên (${totalPcs.toLocaleString('vi-VN')} viên)`;
+
+      // Distance (km)
+      let distanceKm = parseFloat(calcKmInput.value);
+      distanceKm = Math.min(150, Math.max(1, distanceKm || 1));
+
+      // Fleet Mode: Crane (Xe cẩu) vs Dump (Xe ben)
+      const fleetRadios = document.querySelectorAll('input[name="fleet_mode"]');
+      let isCrane = true;
+      fleetRadios.forEach(r => {
+        if (r.checked && r.value === 'dump') isCrane = false;
+      });
+
+      // ====================================================
+      // LOGIC TÍNH TIỀN (Requirement #3):
+      // Tổng tiền = (Số thiên * Giá tại lò) + (Số thiên * km * Đơn giá cước theo km)
+      // ====================================================
+      const brickTotal = Math.round(thien * (unitPrice * 1000));
+      
+      // Đơn giá cước theo km: thien * km * ratePerKm
+      let freightCost = Math.round(thien * distanceKm * ratePerKm);
+      // Áp dụng mức tối thiểu mở chuyến xe tải thực tế (350.000 đ)
+      if (freightCost < 350000) freightCost = 350000;
+
+      // Dự toán chỉ gồm tiền gạch và cước xe ước tính theo km.
+      const grandTotal = brickTotal + freightCost;
+      const perUnitDelivered = totalPcs > 0 ? Math.round(grandTotal / totalPcs) : unitPrice;
+
+      // Display in UI
+      calcResBrick.textContent = formatVND(brickTotal);
+      calcResFreight.textContent = formatVND(freightCost);
+      calcResKm.textContent = String(distanceKm);
+      calcResGrandTotal.textContent = formatVND(grandTotal);
+      calcResPerUnit.textContent = `${formatVND(perUnitDelivered)}/viên`;
+
+      // Update Zalo Link with full quote breakdown (Requirement #4)
+      const quoteText = `Chào điều phối, tôi cần đặt ${thien} thiên (${totalPcs.toLocaleString('vi-VN')} viên) ${productName} từ ${kilnName}. Khoảng cách công trình ~${distanceKm}km (${isCrane ? 'Xe cẩu tự hạ' : 'Xe ben'}). Dự toán tổng ~${formatVND(grandTotal)}. Xin chốt lịch giao sớm nhất!`;
+      btnZaloQuote.href = `https://zalo.me/${HOTLINE_NUMBER}?text=${encodeURIComponent(quoteText)}`;
+
+      // Update recommendation banner
+      updateRecommendation(selectedOption.getAttribute('data-kiln-id'), distanceKm);
+    }
+
+    // Update recommendation box
+    function updateRecommendation(selectedKilnId, km) {
+      const areaOpt = calcAreaSelect.options[calcAreaSelect.selectedIndex];
+      const suggestedKiln = areaOpt.getAttribute('data-suggest-kiln');
+
+      if (!suggestedKiln) {
+        recomTitle.textContent = 'Khoảng cách do bạn cung cấp';
+        recomDesc.textContent = 'Điều phối sẽ kiểm tra tuyến đường và lò phù hợp khi xác nhận đơn.';
+      } else if (suggestedKiln && suggestedKiln === selectedKilnId) {
+        recomTitle.textContent = `Lò gợi ý cho khu vực đã chọn (~${km}km)`;
+        recomDesc.textContent = `Khoảng cách là ước tính. Điều phối sẽ xác nhận tuyến đường và thời gian giao.`;
+      } else if (suggestedKiln) {
+        const found = KILNS_DATA.find(k => k.id === suggestedKiln);
+        if (found) {
+          recomTitle.textContent = `Gợi ý cước rẻ hơn: Hãy tham khảo ${found.name}`;
+          recomDesc.textContent = `Đây là lò gợi ý theo khu vực. Liên hệ điều phối để so sánh chi phí giao thực tế.`;
+        }
+      }
+    }
+
+    // Step Adjust Buttons (- / +)
+    function adjustThien(delta) {
+      let current = parseInt(calcThienInput.value) || 5;
+      current = Math.min(50, Math.max(1, current + delta));
+      calcThienInput.value = current;
+      calculateFreightEstimate();
+    }
+
+    // Select Product from Product Card into Calculator
+    function selectProductForCalc(productId, kilnId) {
+      populateCalculatorProductDropdown();
+      calcProductSelect.value = productId;
+      calculateFreightEstimate();
+
+      const calcElement = document.getElementById('bang-tinh-cuoc');
+      if (calcElement) {
+        calcElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Open the current estimate in Zalo for the customer to request confirmation.
+    function handleLockQuoteAction() {
+      calculateFreightEstimate();
+      window.open(btnZaloQuote.href, '_blank', 'noopener,noreferrer');
+    }
+
+    // ==========================================
+    // 4. EVENT LISTENERS
+    // ==========================================
+    calcThienInput.addEventListener('input', calculateFreightEstimate);
+    calcSlider.addEventListener('input', (e) => {
+      calcThienInput.value = e.target.value;
+      calculateFreightEstimate();
+    });
+
+    calcProductSelect.addEventListener('change', calculateFreightEstimate);
+
+    calcAreaSelect.addEventListener('change', (e) => {
+      if (e.target.value === 'custom') {
+        calcKmInput.focus();
+        calcKmInput.select();
+        calculateFreightEstimate();
+      } else {
+        calcKmInput.value = e.target.value;
+        const suggestKiln = e.target.options[e.target.selectedIndex].getAttribute('data-suggest-kiln');
+        if (suggestKiln) {
+          // auto suggest product of this kiln
+          populateCalculatorProductDropdown(suggestKiln);
+        }
+        calculateFreightEstimate();
+      }
+    });
+
+    calcKmInput.addEventListener('input', () => {
+      calcAreaSelect.value = 'custom';
+      calculateFreightEstimate();
+    });
+    calcThienInput.addEventListener('change', () => {
+      calcThienInput.value = Math.min(50, Math.max(1, Math.round(Number(calcThienInput.value) || 1)));
+      calculateFreightEstimate();
+    });
+    calcKmInput.addEventListener('change', () => {
+      calcKmInput.value = Math.min(150, Math.max(1, Number(calcKmInput.value) || 1));
+      calculateFreightEstimate();
+    });
+    document.addEventListener('error', (event) => {
+      const img = event.target;
+      if (img instanceof HTMLImageElement && !img.dataset.fallback) {
+        img.dataset.fallback = 'true';
+        img.src = '/assets/images/fallback.svg';
+        img.classList.add('image-fallback');
+      }
+    }, true);
+
+    // ==========================================
+    // 5. INITIALIZE APPLICATION
+    // ==========================================
+    renderProducts('all');
+    populateCalculatorProductDropdown('binhduong');
+    calculateFreightEstimate();
+  </script>
+</body>
+</html>

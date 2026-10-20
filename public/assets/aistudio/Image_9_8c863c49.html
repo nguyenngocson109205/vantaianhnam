@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<meta content="web_standard" name="shell-type"/>
+<title>Mạng Lưới Vận Tải &amp; Phân Phối 5 Lò Gạch Tuynel</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Barlow+Condensed:wght@600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#c84b26",
+            "primary-hover": "#b03e1c",
+            "primary-light": "#fff3ed",
+            "zalo": "#0068ff",
+            "zalo-hover": "#0056d6",
+            "surface": "#f6f9ff",
+            "surface-card": "#ffffff",
+            "on-surface": "#161c22",
+            "on-surface-variant": "#58413b",
+            "border-soft": "#e2e8f0"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            display: ["Barlow Condensed", "Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          },
+          borderRadius: {
+            "2xl": "1rem",
+            "3xl": "1.5rem"
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #f6f9ff;
+        color: #161c22;
+        font-family: 'Inter', sans-serif;
+        -webkit-tap-highlight-color: transparent;
+      }
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      background: #c84b26;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      -webkit-appearance: none;
+      box-shadow: 0 2px 6px rgba(200, 75, 38, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased pb-28">
+<!-- Mobile Viewport Container Constraint -->
+<div class="max-w-md mx-auto min-h-screen bg-surface flex flex-col relative shadow-xl overflow-x-hidden">
+<!-- 1. TOP HEADER -->
+<header class="sticky top-0 z-40 bg-surface-card/95 backdrop-blur-md border-b border-border-soft px-4 py-3 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-md shadow-primary/20 shrink-0">
+<span class="material-symbols-outlined text-[22px]">local_shipping</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-bold text-[14px] tracking-tight text-on-surface font-display uppercase">LIÊN MINH 5 LÒ TUYNEL</span>
+<span class="inline-flex items-center px-1.5 py-0.2 rounded-full text-[9px] font-bold bg-amber-100 text-amber-800">
+          18 XE CẨU
+        </span>
+</div>
+<span class="text-[11px] text-emerald-700 font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        Điều Phối Cước Rẻ Nhất
+      </span>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 bg-primary-light hover:bg-orange-100 text-primary border border-primary/20 px-2.5 py-1.5 rounded-full font-bold text-xs transition-colors shadow-sm" href="tel:0908123456">
+<span class="material-symbols-outlined text-[15px]">phone</span>
+<span>0908.123.456</span>
+</a>
+</header>
+<main class="flex flex-col gap-5 p-4">
+<!-- 2. HERO SECTION -->
+<section class="bg-surface-card rounded-2xl p-4.5 border border-border-soft shadow-sm flex flex-col gap-3.5">
+<!-- Top Badge -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 bg-orange-50 text-primary rounded-full text-xs font-semibold self-start border border-orange-200/70">
+<span class="material-symbols-outlined text-[15px]">hub</span>
+    Đội Xe Vận Tải &amp; Phân Phối Gạch Trực Tiếp
+  </div>
+<!-- Main Title & Subtitle -->
+<div class="flex flex-col gap-1.5">
+<h1 class="text-[22px] font-black text-on-surface tracking-tight leading-tight uppercase font-display">
+      MẠNG LƯỚI 5 LÒ GẠCH TUYNEL - <span class="text-primary">GIAO NHANH TẬN CHÂN CÔNG TRÌNH</span>
+</h1>
+<p class="text-xs text-on-surface-variant leading-relaxed font-normal">
+      Lấy gạch từ lò gần công trình nhất để tối ưu chi phí cước xe. Cam kết không lo đứt hàng, đủ số lượng.
+    </p>
+</div>
+<!-- 3 Bullet Trust Points -->
+<div class="flex flex-col gap-2 pt-0.5">
+<div class="flex items-start gap-2">
+<div class="w-4.5 h-4.5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[13px] font-bold">check</span>
+</div>
+<span class="text-xs text-on-surface font-medium leading-snug">
+<strong>5 Lò liên kết</strong> phủ khắp Đông Nam Bộ (Bình Dương, Tây Ninh, Đồng Nai, Long An, BR-VT)
+      </span>
+</div>
+<div class="flex items-start gap-2">
+<div class="w-4.5 h-4.5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[13px] font-bold">check</span>
+</div>
+<span class="text-xs text-on-surface font-medium leading-snug">
+<strong>Đội xe cẩu 18 chiếc</strong> sẵn sàng giao hàng 2 - 4h, tự hạ tận sàn tầng
+      </span>
+</div>
+<div class="flex items-start gap-2">
+<div class="w-4.5 h-4.5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[13px] font-bold">check</span>
+</div>
+<span class="text-xs text-on-surface font-medium leading-snug">
+<strong>Tiết kiệm 30-50% cước giao</strong> nhờ thuật toán điều phối lò gần nhất &amp; kết hợp ghép chuyến
+      </span>
+</div>
+</div>
+<!-- 2 Large Prominent Action Buttons -->
+<div class="grid grid-cols-2 gap-2 pt-1">
+<a class="w-full inline-flex items-center justify-center gap-1.5 py-3 px-3 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-xs shadow-md shadow-primary/25 transition-all active:scale-[0.98]" href="tel:0908123456">
+<span class="material-symbols-outlined text-[18px]">phone_in_talk</span>
+<span>Gọi Báo Giá Ngay</span>
+</a>
+<a class="w-full inline-flex items-center justify-center gap-1.5 py-3 px-3 rounded-xl bg-zalo hover:bg-zalo-hover text-white font-bold text-xs shadow-md shadow-zalo/25 transition-all active:scale-[0.98]" href="https://zalo.me" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">near_me</span>
+<span>Chat Zalo Gửi Vị Trí</span>
+</a>
+</div>
+</section>
+<!-- 3. KILN PARTNER FILTER / TAB SECTION -->
+<section class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">factory</span>
+<h2 class="text-sm font-bold text-on-surface uppercase tracking-tight">Chọn Lò Gạch Liên Kết</h2>
+</div>
+<span class="text-[11px] text-slate-500 font-medium">Vuốt ngang</span>
+</div>
+<!-- Scrollable Pills -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 -mx-4 px-4 text-xs font-semibold">
+<button class="kiln-pill shrink-0 px-3 py-1.5 rounded-full bg-primary text-white border border-primary shadow-sm transition-all" onclick="filterKiln('all', this)">
+      Tất cả các lò
+    </button>
+<button class="kiln-pill shrink-0 px-3 py-1.5 rounded-full bg-white text-on-surface-variant border border-border-soft hover:border-primary/40 transition-all" onclick="filterKiln('binhduong', this)">
+      Lò Tuynel 1 (Bình Dương)
+    </button>
+<button class="kiln-pill shrink-0 px-3 py-1.5 rounded-full bg-white text-on-surface-variant border border-border-soft hover:border-primary/40 transition-all" onclick="filterKiln('tayninh', this)">
+      Lò Tuynel 2 (Tây Ninh)
+    </button>
+<button class="kiln-pill shrink-0 px-3 py-1.5 rounded-full bg-white text-on-surface-variant border border-border-soft hover:border-primary/40 transition-all" onclick="filterKiln('dongnai', this)">
+      Lò Tuynel 3 (Đồng Nai)
+    </button>
+<button class="kiln-pill shrink-0 px-3 py-1.5 rounded-full bg-white text-on-surface-variant border border-border-soft hover:border-primary/40 transition-all" onclick="filterKiln('longan', this)">
+      Lò Tuynel 4 (Long An)
+    </button>
+<button class="kiln-pill shrink-0 px-3 py-1.5 rounded-full bg-white text-on-surface-variant border border-border-soft hover:border-primary/40 transition-all" onclick="filterKiln('baria', this)">
+      Lò Tuynel 5 (Bà Rịa - VT)
+    </button>
+</div>
+<!-- Feature Highlight Banner -->
+<div class="bg-amber-50/90 border border-amber-200/80 rounded-xl p-2.5 flex items-start gap-2 shadow-xs">
+<span class="text-sm shrink-0">💡</span>
+<p class="text-[11px] text-amber-900 leading-snug font-medium">
+<strong>Mẹo tiết kiệm:</strong> Chọn lò gần công trình nhất để giảm <strong>30-50%</strong> phí vận chuyển xe cẩu. Hệ thống sẽ tự động ghép xe rỗng chiều về cho quý khách.
+    </p>
+</div>
+</section>
+<!-- 4. PRODUCT CATALOG BY KILN -->
+<section class="flex flex-col gap-3.5">
+<div class="flex justify-between items-baseline">
+<div>
+<h2 class="text-base font-bold text-on-surface tracking-tight">Sản Phẩm &amp; Giá Xuất Xưởng</h2>
+<p class="text-[11px] text-on-surface-variant">Giá gốc tại miệng lò, kèm thông tin tuyến giao cước rẻ nhất</p>
+</div>
+</div>
+<div class="flex flex-col gap-4" id="product-list">
+<!-- Card 1: Gạch Ống 4 Lỗ Tuynel - Bình Dương -->
+<div class="product-item bg-surface-card rounded-2xl overflow-hidden border border-border-soft shadow-sm flex flex-col" data-kiln="binhduong">
+<div class="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden">
+<img alt="Gạch Ống 4 Lỗ Tuynel" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WSwcsuQLEMx3QWIsCKFx8hfGaYu_jK4w1GrS9jI9m1MdWJrNKeyh5JAmIx33Au6SafL50aF7CTOrt5WLePkcpBefqS91UBO9-SOXaVFKJncTSbKhvKL_0kOG3R5K4H4vEp4Km9g-vYxEdOY1k4jYL2tO8jbI39vlGtw6OSM76tSjaCEON3lL3caY5yGgpt86vjHCqtOlMSobMMfDDqnfzDUyGqYk1jJNCMB3FpCUlaRIy7IjgICMQmVMQ"/>
+<div class="absolute top-2.5 left-2.5 flex flex-wrap gap-1.5">
+<span class="bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+            [Lò Tuynel 1 - Bình Dương]
+          </span>
+<span class="bg-emerald-700 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+            Bán Chạy Nhất
+          </span>
+</div>
+</div>
+<div class="p-3.5 flex flex-col gap-2.5">
+<div class="flex items-baseline justify-between">
+<h3 class="font-bold text-sm text-on-surface">Gạch Ống 4 Lỗ Tuynel Loại 1</h3>
+<span class="text-primary font-extrabold text-sm">830 - 870 đ/viên</span>
+</div>
+<div class="bg-emerald-50/70 border border-emerald-200/60 p-2 rounded-xl text-xs text-emerald-900 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-emerald-700 shrink-0">navigation</span>
+<span class="text-[11px] font-semibold">Tối ưu cước: Giao rẻ nhất đến TP.HCM, Thủ Đức &amp; Bình Dương</span>
+</div>
+<div class="bg-slate-50 p-2 rounded-xl text-[11px] text-on-surface-variant flex flex-col gap-1 border border-slate-100 font-mono">
+<div class="flex justify-between">
+<span class="text-slate-500">Quy cách:</span>
+<span class="font-semibold text-on-surface">8 × 8 × 18 cm (1.35 kg/v)</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-500">Công suất cấp:</span>
+<span class="font-semibold text-emerald-700">120.000 viên/ngày (luôn sẵn hàng)</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-0.5">
+<button class="flex-1 py-2 px-2.5 bg-slate-100 hover:bg-slate-200 text-on-surface font-semibold text-xs rounded-xl transition-colors text-center flex items-center justify-center gap-1" onclick="applyKilnToCalc('binhduong', 850, 'Gạch Ống 4 Lỗ Tuynel')">
+<span class="material-symbols-outlined text-[15px] text-primary">calculate</span>
+<span>Tính Cước Lò Này</span>
+</button>
+<a class="flex-1 py-2 px-2.5 bg-zalo hover:bg-zalo-hover text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-1 shadow-sm transition-colors" href="https://zalo.me" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[15px]">chat</span>
+<span>Hỏi Giá (Zalo)</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 2: Gạch Đặc / Gạch Đơ - Đồng Nai -->
+<div class="product-item bg-surface-card rounded-2xl overflow-hidden border border-border-soft shadow-sm flex flex-col" data-kiln="dongnai">
+<div class="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden">
+<img alt="Gạch Đơ / Gạch Đặc Xây Móng" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XwTOCcJHnLurAICS8IfwX2vhH8U0utkuj7NQunV3Qz9E2H4uJqCRJYv37u6xeszPNwD2qQvhf9Rhc8TNZruziEgE7X87CQAv7blq820xxoe6rGxpJ2avOeO5f_1qs_t0FwqHkpxaX-z-igPWpbR_ms0P0JFHxNYvFsk_ZlNYfBV8v1pfddr911IYwRR-xx_Hk4bp7oiDlkBtboGEkXs_saqH0y-hgY_1cUc6L91D0M_YJgt6LDXE0HjT4"/>
+<div class="absolute top-2.5 left-2.5 flex flex-wrap gap-1.5">
+<span class="bg-slate-800 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+            [Lò Tuynel 3 - Đồng Nai]
+          </span>
+<span class="bg-amber-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+            Mác Cao M100
+          </span>
+</div>
+</div>
+<div class="p-3.5 flex flex-col gap-2.5">
+<div class="flex items-baseline justify-between">
+<h3 class="font-bold text-sm text-on-surface">Gạch Đơ / Gạch Đặc Móng Chịu Lực</h3>
+<span class="text-primary font-extrabold text-sm">1.100 - 1.180 đ/viên</span>
+</div>
+<div class="bg-blue-50/70 border border-blue-200/60 p-2 rounded-xl text-xs text-blue-900 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-blue-700 shrink-0">navigation</span>
+<span class="text-[11px] font-semibold">Tối ưu cước: Giao nhanh Biên Hòa, Long Thành, Amata &amp; Quận 9</span>
+</div>
+<div class="bg-slate-50 p-2 rounded-xl text-[11px] text-on-surface-variant flex flex-col gap-1 border border-slate-100 font-mono">
+<div class="flex justify-between">
+<span class="text-slate-500">Quy cách:</span>
+<span class="font-semibold text-on-surface">6 × 10.5 × 21 cm (2.1 kg/v)</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-500">Đặc tính:</span>
+<span class="font-semibold text-emerald-700">Chống thấm móng &amp; bể phốt tuyệt đối</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-0.5">
+<button class="flex-1 py-2 px-2.5 bg-slate-100 hover:bg-slate-200 text-on-surface font-semibold text-xs rounded-xl transition-colors text-center flex items-center justify-center gap-1" onclick="applyKilnToCalc('dongnai', 1150, 'Gạch Đặc Xây Móng')">
+<span class="material-symbols-outlined text-[15px] text-primary">calculate</span>
+<span>Tính Cước Lò Này</span>
+</button>
+<a class="flex-1 py-2 px-2.5 bg-zalo hover:bg-zalo-hover text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-1 shadow-sm transition-colors" href="https://zalo.me" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[15px]">chat</span>
+<span>Hỏi Giá (Zalo)</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 3: Gạch Demi (Gạch Nửa) - Tây Ninh -->
+<div class="product-item bg-surface-card rounded-2xl overflow-hidden border border-border-soft shadow-sm flex flex-col" data-kiln="tayninh">
+<div class="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden">
+<img alt="Gạch Demi (Gạch Nửa)" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1Wi36v-MPYK6yO8s8apG5AtbBxL6z0fOuACx2N0wkMWIqsYXYlKYXxbDZ_ismUZenVVC4kVB4myS_vtwsUDSbbYDLoEgoTP2O9L8fn67rQYCDL5IWnbV2-31Rx5kiRymnmmESrB1H2D6FylcNuTvLAu8NPWwdhtSXOGCSfstsRDAFGr2RXJmQ9LR_EW8I9Ghe5DzhAi06BI_TArEYKloHou7QfPA6Devns1kDVzHpEl5-JcHzDLZnFYlg"/>
+<div class="absolute top-2.5 left-2.5 flex flex-wrap gap-1.5">
+<span class="bg-amber-800 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+            [Lò Tuynel 2 - Tây Ninh]
+          </span>
+<span class="bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+            Tiết Kiệm Công Cắt
+          </span>
+</div>
+</div>
+<div class="p-3.5 flex flex-col gap-2.5">
+<div class="flex items-baseline justify-between">
+<h3 class="font-bold text-sm text-on-surface">Gạch Demi (Gạch Nửa Đúc Khuôn)</h3>
+<span class="text-primary font-extrabold text-sm">430 - 460 đ/viên</span>
+</div>
+<div class="bg-amber-50/70 border border-amber-200/60 p-2 rounded-xl text-xs text-amber-900 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-amber-700 shrink-0">navigation</span>
+<span class="text-[11px] font-semibold">Tối ưu cước: Giao rẻ tuyến Củ Chi, Hóc Môn, Bình Chánh, Q12</span>
+</div>
+<div class="bg-slate-50 p-2 rounded-xl text-[11px] text-on-surface-variant flex flex-col gap-1 border border-slate-100 font-mono">
+<div class="flex justify-between">
+<span class="text-slate-500">Kích thước:</span>
+<span class="font-semibold text-on-surface">8 × 8 × 9 cm (0.7 kg/v)</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-500">Lợi ích thợ:</span>
+<span class="font-semibold text-primary">Tăng tốc độ xây 20%, không hao vỡ</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-0.5">
+<button class="flex-1 py-2 px-2.5 bg-slate-100 hover:bg-slate-200 text-on-surface font-semibold text-xs rounded-xl transition-colors text-center flex items-center justify-center gap-1" onclick="applyKilnToCalc('tayninh', 450, 'Gạch Demi')">
+<span class="material-symbols-outlined text-[15px] text-primary">calculate</span>
+<span>Tính Cước Lò Này</span>
+</button>
+<a class="flex-1 py-2 px-2.5 bg-zalo hover:bg-zalo-hover text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-1 shadow-sm transition-colors" href="https://zalo.me" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[15px]">chat</span>
+<span>Hỏi Giá (Zalo)</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 4: Gạch Ống 6 Lỗ Cách Âm - Long An & Bà Rịa -->
+<div class="product-item bg-surface-card rounded-2xl overflow-hidden border border-border-soft shadow-sm flex flex-col" data-kiln="longan">
+<div class="relative w-full aspect-[16/10] bg-gradient-to-br from-amber-100 via-orange-50 to-slate-100 flex items-center justify-center p-4">
+<div class="flex flex-col items-center justify-center text-center gap-1">
+<span class="material-symbols-outlined text-primary text-[42px]">grid_view</span>
+<span class="font-extrabold text-sm text-on-surface uppercase tracking-wider">Gạch Ống 6 Lỗ Cách Âm - Cách Nhiệt</span>
+<span class="text-[11px] text-on-surface-variant">Chuyên xây biệt thự, khách sạn, căn hộ dịch vụ cao cấp</span>
+</div>
+<div class="absolute top-2.5 left-2.5 flex flex-wrap gap-1.5">
+<span class="bg-teal-800 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+            [Lò Tuynel 4 - Long An]
+          </span>
+<span class="bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+            Cách Âm Tốt
+          </span>
+</div>
+</div>
+<div class="p-3.5 flex flex-col gap-2.5">
+<div class="flex items-baseline justify-between">
+<h3 class="font-bold text-sm text-on-surface">Gạch 6 Lỗ Lò Long An / BR-VT</h3>
+<span class="text-primary font-extrabold text-sm">1.450 - 1.550 đ/viên</span>
+</div>
+<div class="bg-teal-50/70 border border-teal-200/60 p-2 rounded-xl text-xs text-teal-900 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-teal-700 shrink-0">navigation</span>
+<span class="text-[11px] font-semibold">Tối ưu cước: Giao rẻ nhất Bình Chánh, Quận 7, Nhà Bè &amp; Long An</span>
+</div>
+<div class="bg-slate-50 p-2 rounded-xl text-[11px] text-on-surface-variant flex flex-col gap-1 border border-slate-100 font-mono">
+<div class="flex justify-between">
+<span class="text-slate-500">Kích thước:</span>
+<span class="font-semibold text-on-surface">19.5 × 13.5 × 9 cm</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-500">Khả năng:</span>
+<span class="font-semibold text-teal-700">Giảm 45% tiếng ồn &amp; chống nóng tường bao</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-0.5">
+<button class="flex-1 py-2 px-2.5 bg-slate-100 hover:bg-slate-200 text-on-surface font-semibold text-xs rounded-xl transition-colors text-center flex items-center justify-center gap-1" onclick="applyKilnToCalc('longan', 1500, 'Gạch 6 Lỗ Cách Âm')">
+<span class="material-symbols-outlined text-[15px] text-primary">calculate</span>
+<span>Tính Cước Lò Này</span>
+</button>
+<a class="flex-1 py-2 px-2.5 bg-zalo hover:bg-zalo-hover text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-1 shadow-sm transition-colors" href="https://zalo.me" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[15px]">chat</span>
+<span>Hỏi Giá (Zalo)</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. NEW SECTION: DỊCH VỤ VẬN TẢI & CHỞ HÀNG CÔNG TRÌNH -->
+<section class="bg-surface-card rounded-2xl p-4.5 border border-border-soft shadow-sm flex flex-col gap-3.5">
+<div class="flex flex-col gap-1">
+<div class="inline-flex items-center gap-1.5 text-primary text-[11px] font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span>
+      Dịch Vụ Logistics Công Trình Chuyên Tuyến
+    </div>
+<h2 class="text-base font-bold text-on-surface leading-tight">
+      Đội Xe Vận Tải Chở Hàng &amp; Ghép Chuyến Công Trình
+    </h2>
+<p class="text-xs text-on-surface-variant">
+      Tận dụng đội xe tải &amp; xe cẩu 18 chiếc đi - về liên tục để giảm tối đa cước xe cho khách hàng
+    </p>
+</div>
+<div class="grid grid-cols-1 gap-2.5">
+<!-- Card 1 -->
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-orange-100 text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">precision_manufacturing</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-bold text-xs text-on-surface">Đội xe tải 5 tấn - 15 tấn có bửng nâng &amp; cẩu tự hạ</h3>
+<p class="text-[11px] text-on-surface-variant mt-0.5 leading-relaxed">
+          Chuyên chở gạch, đá, bốc dỡ tận lầu, ban công hoặc sàn thi công cao, tiết kiệm 100% công bốc vác thợ.
+        </p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-blue-100 text-zalo flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">category</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-bold text-xs text-on-surface">Nhận chở đa dạng vật tư xây dựng</h3>
+<p class="text-[11px] text-on-surface-variant mt-0.5 leading-relaxed">
+          Nhận vận chuyển trọn gói cát, đá, xi măng bao, sắt thép cây, giàn giáo, cốp pha với cước xưởng gốc.
+        </p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">published_with_changes</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-bold text-xs text-on-surface">Ghép chuyến 2 chiều giá rẻ (Tiết kiệm 40%)</h3>
+<p class="text-[11px] text-on-surface-variant mt-0.5 leading-relaxed">
+          Tận dụng các chiều xe về rỗng tuyến Bình Dương, Đồng Nai, Tây Ninh, Long An về TP.HCM để giảm giá cước kịch khung.
+        </p>
+</div>
+</div>
+</div>
+<!-- Action button for freight service -->
+<div class="pt-1">
+<a class="w-full py-3 px-4 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-2 shadow-md transition-all active:scale-[0.98]" href="tel:0908123456">
+<span class="material-symbols-outlined text-[18px] text-amber-400">rv_hookup</span>
+<span>Đặt Xe Chở Hàng / Ghép Chuyến Ngay</span>
+</a>
+</div>
+</section>
+<!-- 6. SMART FREIGHT CALCULATOR WIDGET -->
+<section class="bg-surface-card rounded-2xl p-4.5 border border-border-soft shadow-sm flex flex-col gap-4" id="bang-tinh-cuoc">
+<div>
+<div class="inline-flex items-center gap-1 text-primary text-xs font-bold uppercase tracking-wider mb-1">
+<span class="material-symbols-outlined text-[16px]">calculate</span>
+      Hệ Thống Điều Phối Vận Tải
+    </div>
+<h2 class="text-base font-bold text-on-surface">Tính Cước Thông Minh &amp; Gợi Ý Lò Gần Nhất</h2>
+<p class="text-xs text-on-surface-variant mt-0.5">Chọn vị trí công trình để hệ thống tự ghép lò tối ưu cước và lộ trình xe cẩu</p>
+</div>
+<form class="flex flex-col gap-3.5" onsubmit="event.preventDefault();">
+<!-- Step 1: Chọn vị trí công trình -->
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface flex items-center justify-between" for="calc-district">
+<span>1. Chọn vị trí công trình nhận gạch:</span>
+<span class="text-[10px] text-primary font-bold">Tự gợi ý lò gần</span>
+</label>
+<div class="relative">
+<select class="w-full text-xs font-medium bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 pr-8 text-on-surface appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" id="calc-district">
+<option data-kiln="binhduong" data-kiln-name="Lò Tuynel 1 (Bình Dương)" data-km="14" data-rate="750000" selected="" value="thuduc">TP. Thủ Đức / Quận 9 / Q.2</option>
+<option data-kiln="binhduong" data-kiln-name="Lò Tuynel 1 (Bình Dương)" data-km="8" data-rate="600000" value="binhduong">Bình Dương (Dĩ An, Thuận An, Thủ Dầu Một)</option>
+<option data-kiln="tayninh" data-kiln-name="Lò Tuynel 2 (Tây Ninh - Củ Chi)" data-km="16" data-rate="800000" value="cuchi">Củ Chi / Hóc Môn / Quận 12</option>
+<option data-kiln="dongnai" data-kiln-name="Lò Tuynel 3 (Đồng Nai)" data-km="12" data-rate="750000" value="dongnai">Đồng Nai (Biên Hòa, Long Thành, Amata)</option>
+<option data-kiln="longan" data-kiln-name="Lò Tuynel 4 (Long An)" data-km="15" data-rate="850000" value="longan">Bình Chánh / Q.7 / Nhà Bè / Long An</option>
+<option data-kiln="baria" data-kiln-name="Lò Tuynel 5 (Bà Rịa - VT)" data-km="18" data-rate="950000" value="baria">Bà Rịa - Vũng Tàu / Tân Thành</option>
+</select>
+<span class="material-symbols-outlined text-slate-400 absolute right-2.5 top-2.5 pointer-events-none text-[18px]">expand_more</span>
+</div>
+<!-- Real-time suggestion notification badge -->
+<div class="mt-1 p-2.5 bg-emerald-50 border border-emerald-200 rounded-xl flex items-start gap-2 shadow-2xs" id="kiln-recommendation-box">
+<span class="material-symbols-outlined text-emerald-700 text-[18px] shrink-0 mt-0.5">share_location</span>
+<div class="flex flex-col text-[11px] leading-tight">
+<span class="font-bold text-emerald-950" id="recom-title">Đề xuất: Lò Tuynel 1 (Bình Dương) - Cách 14km</span>
+<span class="text-emerald-800 text-[10.5px] mt-0.5" id="recom-desc">Tuyến ngắn nhất, cước rẻ nhất. Đang có 3 xe cẩu sẵn chuyến.</span>
+</div>
+</div>
+</div>
+<!-- Step 2: Chọn loại gạch & số lượng slider -->
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface" for="calc-brick">2. Chọn loại gạch xây:</label>
+<div class="relative">
+<select class="w-full text-xs font-medium bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 pr-8 text-on-surface appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" id="calc-brick">
+<option selected="" value="850">Gạch Ống 4 Lỗ Tuynel - 850 đ/viên</option>
+<option value="1150">Gạch Đặc Mác M100 Xây Móng - 1.150 đ/viên</option>
+<option value="450">Gạch Demi (Gạch Nửa) - 450 đ/viên</option>
+<option value="1500">Gạch 6 Lỗ Cách Âm Cách Nhiệt - 1.500 đ/viên</option>
+</select>
+<span class="material-symbols-outlined text-slate-400 absolute right-2.5 top-2.5 pointer-events-none text-[18px]">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center text-xs">
+<label class="font-semibold text-on-surface" for="calc-slider">Số lượng đặt hàng:</label>
+<span class="font-bold text-primary text-xs bg-orange-50 px-2.5 py-0.5 rounded-full border border-orange-200 font-mono" id="quantity-display">
+          10.000 viên (10 thiên)
+        </span>
+</div>
+<input class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-primary" id="calc-slider" max="30000" min="5000" step="1000" type="range" value="10000"/>
+<div class="flex justify-between text-[10px] text-slate-400 font-medium font-mono">
+<span>5.000 viên</span>
+<span>15.000 viên</span>
+<span>30.000 viên</span>
+</div>
+</div>
+<!-- Step 3: Chọn phương thức vận chuyển -->
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface">3. Chọn loại xe &amp; hạ hàng:</label>
+<div class="grid grid-cols-2 gap-2">
+<label class="flex flex-col p-2.5 rounded-xl border border-primary bg-orange-50/60 cursor-pointer text-xs relative has-[:checked]:border-primary has-[:checked]:bg-orange-50/80">
+<div class="flex items-center justify-between mb-1">
+<span class="font-bold text-on-surface">Xe cẩu tự hạ</span>
+<input checked="" class="accent-primary" name="vehicle-type" type="radio" value="crane"/>
+</div>
+<span class="text-[10px] text-on-surface-variant leading-tight">Hạ thẳng lên sàn/tầng, cam kết không bể vỡ</span>
+</label>
+<label class="flex flex-col p-2.5 rounded-xl border border-slate-200 bg-slate-50 cursor-pointer text-xs relative has-[:checked]:border-primary has-[:checked]:bg-orange-50/80">
+<div class="flex items-center justify-between mb-1">
+<span class="font-bold text-on-surface">Xe ben tự đổ</span>
+<input class="accent-primary" name="vehicle-type" type="radio" value="dump"/>
+</div>
+<span class="text-[10px] text-on-surface-variant leading-tight">Cước rẻ hơn 20%, cần mặt bằng bãi rộng</span>
+</label>
+</div>
+</div>
+<!-- Live cost summary -->
+<div class="mt-1 p-3.5 bg-slate-900 text-white rounded-xl flex flex-col gap-2 shadow-inner font-mono">
+<div class="flex justify-between items-center text-xs pb-1.5 border-b border-slate-800">
+<span class="text-slate-400 font-sans">Tiền gạch tại lò:</span>
+<span class="font-semibold text-white" id="res-brick">8.500.000 đ</span>
+</div>
+<div class="flex justify-between items-center text-xs pb-1.5 border-b border-slate-800">
+<span class="text-slate-400 font-sans">Cước vận chuyển dự kiến:</span>
+<span class="font-semibold text-amber-400" id="res-shipping">750.000 đ (Xe cẩu)</span>
+</div>
+<div class="flex justify-between items-center pt-0.5">
+<span class="text-xs font-bold text-slate-200 font-sans">Tổng chi phí trọn gói:</span>
+<span class="text-base font-extrabold text-primary-light" id="res-total">9.250.000 đ</span>
+</div>
+</div>
+<!-- Button -->
+<button class="w-full py-3 bg-primary hover:bg-primary-hover text-white rounded-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-primary/20 transition-all active:scale-[0.98]" onclick="handleLockPrice()" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Giữ Giá &amp; Đặt Xe Ngay</span>
+</button>
+</form>
+</section>
+<!-- 7. VALUE PROPOSITIONS -->
+<section class="flex flex-col gap-3">
+<h2 class="text-base font-bold text-on-surface">Ưu Thế Vận Tải 5 Lò Liên Minh</h2>
+<div class="grid grid-cols-1 gap-2.5">
+<div class="bg-surface-card p-3 rounded-xl border border-border-soft shadow-sm flex items-start gap-3">
+<div class="w-9 h-9 rounded-xl bg-orange-100 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">pin_drop</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-bold text-xs text-on-surface">Không Lo Hết Hàng - Điều Phối Linh Hoạt</h3>
+<p class="text-[11px] text-on-surface-variant mt-0.5 leading-relaxed">
+          Nếu 1 lò bảo trì hoặc thiếu khuôn gạch, 4 lò còn lại ngay lập tức bù hàng đảm bảo công trình không dừng thi công.
+        </p>
+</div>
+</div>
+<div class="bg-surface-card p-3 rounded-xl border border-border-soft shadow-sm flex items-start gap-3">
+<div class="w-9 h-9 rounded-xl bg-blue-100 text-zalo flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">local_shipping</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-bold text-xs text-on-surface">Đội Xe Cẩu Chuyên Nghiệp Tự Vận Hành</h3>
+<p class="text-[11px] text-on-surface-variant mt-0.5 leading-relaxed">
+          Tài xế lành nghề trên 5 năm kinh nghiệm luồn lách hẻm nhỏ đô thị và hạ gạch an toàn, chuẩn xác từng pallet.
+        </p>
+</div>
+</div>
+<div class="bg-surface-card p-3 rounded-xl border border-border-soft shadow-sm flex items-start gap-3">
+<div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-bold text-xs text-on-surface">Bảo Hiểm Bể Vỡ 100%</h3>
+<p class="text-[11px] text-on-surface-variant mt-0.5 leading-relaxed">
+          Cam kết đền bù viên vỡ ngay tại chân công trình nếu tỉ lệ bể vỡ do cẩu hạ vượt quá 1% quy chuẩn xuất xưởng.
+        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. REVIEWS -->
+<section class="flex flex-col gap-3">
+<h2 class="text-base font-bold text-on-surface">Đánh Giá Từ Nhà Thầu &amp; Đơn Vị Vận Tải</h2>
+<div class="grid grid-cols-1 gap-2.5">
+<div class="bg-surface-card p-3.5 rounded-xl border border-border-soft shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center text-on-surface font-bold text-[11px]">
+            Q.V
+          </div>
+<div>
+<h4 class="font-bold text-xs text-on-surface">Anh Quốc Việt</h4>
+<p class="text-[10px] text-on-surface-variant">Chỉ huy trưởng công trình căn hộ mini - TP. Thủ Đức</p>
+</div>
+</div>
+<div class="flex text-amber-400">
+<span class="material-symbols-outlined text-[15px] fill-current">star</span>
+<span class="material-symbols-outlined text-[15px] fill-current">star</span>
+<span class="material-symbols-outlined text-[15px] fill-current">star</span>
+<span class="material-symbols-outlined text-[15px] fill-current">star</span>
+<span class="material-symbols-outlined text-[15px] fill-current">star</span>
+</div>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-relaxed italic bg-slate-50 p-2 rounded-lg border border-slate-100">
+        “Công trình mình nhận gạch từ Lò Bình Dương, điều xe cẩu hạ lên lầu 2 rất gọn. Cước rẻ hơn đặt đại lý bán lẻ 400k/chuyến mà gạch đanh chắc, vuông vắn.”
+      </p>
+</div>
+<div class="bg-surface-card p-3.5 rounded-xl border border-border-soft shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center text-on-surface font-bold text-[11px]">
+            T.H
+          </div>
+<div>
+<h4 class="font-bold text-xs text-on-surface">Công ty XD Thịnh Hưng</h4>
+<p class="text-[10px] text-on-surface-variant">Tổng thầu cụm nhà xưởng - Dĩ An &amp; Biên Hòa</p>
+</div>
+</div>
+<div class="flex text-amber-400">
+<span class="material-symbols-outlined text-[15px] fill-current">star</span>
+<span class="material-symbols-outlined text-[15px] fill-current">star</span>
+<span class="material-symbols-outlined text-[15px] fill-current">star</span>
+<span class="material-symbols-outlined text-[15px] fill-current">star</span>
+<span class="material-symbols-outlined text-[15px] fill-current">star</span>
+</div>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-relaxed italic bg-slate-50 p-2 rounded-lg border border-slate-100">
+        “Tiện nhất là đợt thiếu hàng lò này thì mạng lưới tự động chuyển sang lò Đồng Nai chở qua ngay trong buổi chiều, thợ không bị đứng chờ gạch một tiếng nào.”
+      </p>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="pt-4 pb-2 border-t border-border-soft text-center flex flex-col gap-1 text-xs text-on-surface-variant">
+<p class="font-bold text-on-surface text-[12px]">HỆ THỐNG LIÊN MINH VẬN TẢI &amp; PHÂN PHỐI 5 LÒ TUYNEL</p>
+<p class="text-[10.5px]">Trung tâm điều phối xe: Vành Đai 3 &amp; QL1A - Thủ Đức - Bình Dương - Đồng Nai</p>
+<p class="text-[10px] text-slate-400">© 2025 Mạng Lưới Phân Phối Gạch Tuynel Miền Nam. Hotline: 0908.123.456</p>
+</footer>
+</main>
+<!-- 9. STICKY BOTTOM FLOATING BAR (Mobile View - Fixed at bottom) -->
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-border-soft shadow-[0_-4px_20px_rgba(0,0,0,0.09)] py-2.5 px-3">
+<div class="max-w-md mx-auto grid grid-cols-2 gap-2">
+<!-- Nút Gọi -->
+<a class="flex items-center justify-center gap-1.5 py-3 px-2 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-xs transition-transform active:scale-95 shadow-md shadow-primary/20" href="tel:0908123456">
+<span class="material-symbols-outlined text-[18px]">call</span>
+<span class="truncate">Gọi Báo Giá Ngay: 0908.123.456</span>
+</a>
+<!-- Nút Zalo -->
+<a class="flex items-center justify-center gap-1.5 py-3 px-2 rounded-xl bg-zalo hover:bg-zalo-hover text-white font-bold text-xs transition-transform active:scale-95 shadow-md shadow-zalo/20" href="https://zalo.me" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">near_me</span>
+<span class="truncate">Chat Zalo Báo Vị Trí</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Interactive Logic -->
+<script>
+  const brickSelect = document.getElementById('calc-brick');
+  const slider = document.getElementById('calc-slider');
+  const quantityDisplay = document.getElementById('quantity-display');
+  const districtSelect = document.getElementById('calc-district');
+  const vehicleRadios = document.querySelectorAll('input[name="vehicle-type"]');
+  
+  const recomTitle = document.getElementById('recom-title');
+  const recomDesc = document.getElementById('recom-desc');
+
+  const resBrick = document.getElementById('res-brick');
+  const resShipping = document.getElementById('res-shipping');
+  const resTotal = document.getElementById('res-total');
+
+  function formatVND(number) {
+    return new Intl.NumberFormat('vi-VN').format(Math.round(number)) + ' đ';
+  }
+
+  function updateKilnRecommendation() {
+    const selectedOption = districtSelect.options[districtSelect.selectedIndex];
+    const kilnName = selectedOption.getAttribute('data-kiln-name') || 'Lò Tuynel gần nhất';
+    const km = selectedOption.getAttribute('data-km') || '12';
+
+    recomTitle.textContent = `Đề xuất: ${kilnName} - Cách bạn ~${km}km`;
+    recomDesc.textContent = `Tuyến đường tối ưu nhất, điều phối xe cẩu xuất bến tức thì.`;
+  }
+
+  function calculateEstimate() {
+    const unitPrice = parseFloat(brickSelect.value) || 850;
+    const quantity = parseInt(slider.value) || 10000;
+    
+    const selectedOption = districtSelect.options[districtSelect.selectedIndex];
+    const baseShipping = parseFloat(selectedOption.getAttribute('data-rate')) || 750000;
+    
+    let isCrane = true;
+    vehicleRadios.forEach(r => {
+      if (r.checked && r.value === 'dump') isCrane = false;
+    });
+
+    // Quantity display
+    const thien = (quantity / 1000).toFixed(0);
+    quantityDisplay.textContent = quantity.toLocaleString('vi-VN') + ` viên (${thien} thiên)`;
+
+    // Brick total
+    const brickTotal = quantity * unitPrice;
+
+    // Shipping calculation (1 xe chở chuẩn 10.000 viên)
+    const truckCount = Math.max(1, Math.ceil(quantity / 10000));
+    let shippingTotal = baseShipping * truckCount;
+    if (!isCrane) {
+      shippingTotal = shippingTotal * 0.8; // xe ben rẻ hơn 20%
+    }
+
+    const grandTotal = brickTotal + shippingTotal;
+
+    resBrick.textContent = formatVND(brickTotal);
+    resShipping.textContent = formatVND(shippingTotal) + (isCrane ? ' (Xe cẩu)' : ' (Xe ben)');
+    resTotal.textContent = formatVND(grandTotal);
+
+    updateKilnRecommendation();
+  }
+
+  // Filter kiln pill tabs
+  function filterKiln(kilnCode, btnElement) {
+    document.querySelectorAll('.kiln-pill').forEach(btn => {
+      btn.classList.remove('bg-primary', 'text-white', 'border-primary');
+      btn.classList.add('bg-white', 'text-on-surface-variant', 'border-border-soft');
+    });
+
+    btnElement.classList.add('bg-primary', 'text-white', 'border-primary');
+    btnElement.classList.remove('bg-white', 'text-on-surface-variant', 'border-border-soft');
+
+    const products = document.querySelectorAll('.product-item');
+    products.forEach(item => {
+      if (kilnCode === 'all' || item.getAttribute('data-kiln') === kilnCode) {
+        item.style.display = 'flex';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  function applyKilnToCalc(kilnCode, price, name) {
+    // Select matching brick option
+    for (let i = 0; i < brickSelect.options.length; i++) {
+      if (parseFloat(brickSelect.options[i].value) === price) {
+        brickSelect.selectedIndex = i;
+        break;
+      }
+    }
+
+    // Match district roughly by kiln
+    for (let i = 0; i < districtSelect.options.length; i++) {
+      if (districtSelect.options[i].getAttribute('data-kiln') === kilnCode) {
+        districtSelect.selectedIndex = i;
+        break;
+      }
+    }
+
+    calculateEstimate();
+
+    const calcSection = document.getElementById('bang-tinh-cuoc');
+    if (calcSection) {
+      calcSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function handleLockPrice() {
+    const q = slider.value;
+    const total = resTotal.textContent;
+    const selectedOption = districtSelect.options[districtSelect.selectedIndex];
+    const kilnName = selectedOption.getAttribute('data-kiln-name');
+    alert(`ĐÃ GIỮ GIÁ THÀNH CÔNG!\n- Số lượng: ${parseInt(q).toLocaleString('vi-VN')} viên\n- Điều phối: ${kilnName}\n- Ước tính trọn gói: ${total}\n\nĐội xe điều phối sẽ liên hệ quý khách trong 3 phút.`);
+  }
+
+  // Event Listeners
+  slider.addEventListener('input', calculateEstimate);
+  brickSelect.addEventListener('change', calculateEstimate);
+  districtSelect.addEventListener('change', calculateEstimate);
+  vehicleRadios.forEach(radio => radio.addEventListener('change', calculateEstimate));
+
+  // Init
+  calculateEstimate();
+</script>
+</body></html>

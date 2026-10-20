@@ -1,0 +1,6 @@
+{
+  "name": "Mạng Lưới Vận Tải & Phân Phối 5 Lò Gạch Tuynel",
+  "description": "Single-page Web App phân phối gạch Tuynel liên minh 5 lò miền Nam: lọc lò trực tiếp, tính cước giao xe cẩu thời gian thực và tự động liên hệ Zalo/Hotline.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

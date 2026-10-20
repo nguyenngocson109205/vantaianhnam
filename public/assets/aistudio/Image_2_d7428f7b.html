@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-container-low":"#eef4fc","on-primary-fixed-variant":"#872100","tertiary-container":"#a36700","tertiary-fixed":"#ffddb8","on-secondary":"#ffffff","surface-variant":"#dde3eb","secondary-fixed":"#d8e3fb","primary-fixed-dim":"#ffb5a0","surface":"#f6f9ff","secondary":"#545f73","inverse-primary":"#ffb5a0","on-surface":"#161c22","on-tertiary":"#ffffff","primary":"#a6330f","on-error":"#ffffff","secondary-fixed-dim":"#bcc7de","on-primary-container":"#fffaff","outline":"#8c716a","inverse-on-surface":"#ebf1f9","tertiary":"#815100","on-tertiary-fixed":"#2a1700","surface-dim":"#d4dbe2","on-secondary-fixed":"#111c2d","surface-tint":"#aa3612","on-secondary-fixed-variant":"#3c475a","on-background":"#161c22","tertiary-fixed-dim":"#ffb95f","on-primary-fixed":"#3b0900","error-container":"#ffdad6","on-secondary-container":"#586377","primary-container":"#c84b26","surface-container-high":"#e3e9f1","primary-fixed":"#ffdbd1","secondary-container":"#d5e0f8","surface-bright":"#f6f9ff","on-tertiary-fixed-variant":"#653e00","background":"#f6f9ff","surface-container":"#e8eef6","on-error-container":"#93000a","surface-container-highest":"#dde3eb","error":"#ba1a1a","surface-container-lowest":"#ffffff","on-tertiary-container":"#fffbff","on-surface-variant":"#58413b","on-primary":"#ffffff","outline-variant":"#e0bfb7","inverse-surface":"#2b3137"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"2.5rem","space-sm":"0.5rem","space-lg":"1.5rem","margin":"1rem","margin-desktop":"3rem","gutter-desktop":"1.5rem","gutter":"1rem","space-xs":"0.25rem","space-md":"1rem","margin-tablet":"2rem"},"fontFamily":{"display-hero":["Barlow Condensed"],"label-technical":["JetBrains Mono"],"label-data-dim":["JetBrains Mono"],"headline-lg-mobile":["Barlow Condensed"],"headline-sm":["Barlow Condensed"],"body-sm":["Inter"],"label-badge":["Barlow Condensed"],"headline-md":["Barlow Condensed"],"body-md":["Inter"],"body-lg":["Inter"],"display-hero-mobile":["Barlow Condensed"],"headline-lg":["Barlow Condensed"]},"fontSize":{"display-hero":["56px",{"lineHeight":"60px","letterSpacing":"0.02em","fontWeight":"800"}],"label-technical":["13px",{"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"600"}],"label-data-dim":["11px",{"lineHeight":"14px","letterSpacing":"0.06em","fontWeight":"500"}],"headline-lg-mobile":["28px",{"lineHeight":"32px","letterSpacing":"0.03em","fontWeight":"700"}],"headline-sm":["20px",{"lineHeight":"24px","letterSpacing":"0.04em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-badge":["13px",{"lineHeight":"14px","letterSpacing":"0.1em","fontWeight":"800"}],"headline-md":["24px",{"lineHeight":"28px","letterSpacing":"0.03em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"500"}],"display-hero-mobile":["36px",{"lineHeight":"40px","letterSpacing":"0.02em","fontWeight":"800"}],"headline-lg":["36px",{"lineHeight":"40px","letterSpacing":"0.03em","fontWeight":"700"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.06)]"><div class="bg-inverse-surface text-inverse-on-surface py-space-xs px-margin lg:px-margin-desktop"><div class="max-w-[1440px] mx-auto flex flex-wrap items-center justify-between gap-space-xs"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-technical text-label-technical uppercase tracking-wider text-primary-fixed">KILN DIRECT DISPATCH: ACTIVE FLEET READY</span></div><span class="hidden md:inline-block font-label-data-dim text-label-data-dim text-secondary-fixed-dim">ASTM C216 / C902 COMPLIANT • ISO 9001 FACTORY CERTIFIED</span></div><div class="flex items-center gap-space-md"><span class="font-label-technical text-label-technical text-secondary-fixed">24/7 SITE HOTLINE: <strong class="text-surface-bright">1900-5888</strong></span><span class="hidden sm:inline-block font-label-badge text-label-badge bg-primary text-on-primary px-space-xs uppercase">JOB-SITE DIRECT</span></div></div></div><div class="h-20 max-w-[1440px] mx-auto px-margin lg:px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><img alt="Kiln &amp; Haul Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UTnwqGLyib4WBq-F1ttuA_tVoBRYRFpKlEbv0u1X5CFr_76SB9etVa-lv0W0yt2ZZxDa4AVZGa89IwAhH-pyjr58TacXZHdywiBOtr3dnFvI4ERcvemgT-eG2ocgHIC5ONzQO-XTeYCeUWYOIW5_YUWJaUS4ZRf_a6q0WCGL8pIYZultwBy5gmPrdwD5c2lgojs7SlBnUxvfAi6R0xYbiO3aumegtOrckHvmJB7BbAE84WUySVX1BlL-w"/><div class="flex flex-col"><span class="font-headline-md text-headline-md uppercase tracking-tight text-on-surface leading-none">Kiln &amp; Haul</span><span class="font-label-data-dim text-label-data-dim text-on-surface-variant uppercase tracking-widest">Direct Bulk Brick Logistics</span></div></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-primary font-bold"><a aria-current="page" class="uppercase transition-colors text-primary font-bold" data-path="brick-catalog" href="#">Brick Catalog</a><a class="font-headline-sm text-headline-sm uppercase text-on-surface-variant hover:text-on-surface transition-colors" data-path="instant-freight-calc" href="#">Instant Freight Calc</a><a class="font-headline-sm text-headline-sm uppercase text-on-surface-variant hover:text-on-surface transition-colors" data-path="wholesale-fleet-haulage" href="#">Wholesale Fleet Haulage</a><a class="font-headline-sm text-headline-sm uppercase text-on-surface-variant hover:text-on-surface transition-colors" data-path="quality-standards" href="#">Quality Standards</a><a class="font-headline-sm text-headline-sm uppercase text-on-surface-variant hover:text-on-surface transition-colors" data-path="track-delivery" href="#">Track Delivery</a></nav><div class="flex items-center gap-space-sm"><a class="hidden sm:inline-flex items-center justify-center px-space-md py-space-sm font-headline-sm text-headline-sm uppercase text-on-surface bg-surface-container hover:bg-surface-container-high transition-colors" href="tel:19005888">Call Hotline</a><a class="inline-flex items-center justify-center px-space-md py-space-sm font-headline-sm text-headline-sm uppercase text-on-primary bg-primary-container hover:bg-primary transition-colors" data-path="instant-quote" href="#">Instant Quote</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-28 bg-surface"><div class="flex flex-col w-full">
+<!-- SECTION 1: HERO INDUSTRIAL MATRIX -->
+<section class="relative w-full bg-surface-container-low overflow-hidden">
+<!-- Hazard Warning Top Strip -->
+<div class="w-full h-2 bg-gradient-to-r from-primary via-tertiary to-primary"></div>
+<div class="max-w-[1440px] mx-auto px-margin lg:px-margin-desktop py-space-lg lg:py-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column: Heavy Headline & CTAs (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Tag & Operational Status -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-0.5 bg-inverse-surface text-inverse-on-surface font-label-badge text-label-badge uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+              TUNNEL KILN COMPLEX #4 • LIVE FEED
+            </span>
+<span class="px-space-xs py-0.5 bg-surface-container-highest text-on-surface font-label-technical text-label-technical uppercase">
+              ASTM C652 / C62 CERTIFIED
+            </span>
+<span class="px-space-xs py-0.5 bg-tertiary-fixed text-on-tertiary-fixed font-label-technical text-label-technical uppercase font-bold">
+              100% FACTORY DIRECT
+            </span>
+</div>
+<!-- Main Heavy-Duty Title -->
+<h1 class="font-display-hero text-display-hero uppercase text-on-surface tracking-tight">
+            DIRECT FROM THE KILN TO YOUR JOBSITE
+          </h1>
+<!-- Precision Subtitle -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Eliminate distributor markups. Guaranteed on-spec structural clay and high-compressive masonry dispatched directly via our crane-unloading fleet within 4–12 hours across northern and central industrial corridors.
+          </p>
+<!-- Action Buttons -->
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<a class="inline-flex items-center gap-space-xs px-space-lg py-space-md bg-primary-container text-on-primary font-headline-sm text-headline-sm uppercase tracking-wider shadow-lg hover:bg-primary transition-all active:translate-y-0.5" href="#freight-calc">
+<span class="material-symbols-outlined text-[20px]">precision_manufacturing</span>
+              Calculate Jobsite Delivery
+            </a>
+<a class="inline-flex items-center gap-space-xs px-space-md py-space-md bg-surface-container-highest text-on-surface font-headline-sm text-headline-sm uppercase tracking-wider hover:bg-surface-variant transition-colors shadow-sm" href="#spec-grid">
+<span class="material-symbols-outlined text-[20px]">download_for_offline</span>
+              ASTM C652 Testing Sheet
+            </a>
+</div>
+<!-- Technical Schematic Highlight Box -->
+<div class="mt-space-sm p-space-sm bg-surface-container-lowest shadow-md flex items-center justify-between gap-space-md flex-wrap">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 bg-primary text-on-primary flex items-center justify-center font-display-hero text-headline-sm">
+                0%
+              </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm uppercase text-on-surface leading-none">NO INTERMEDIARY MARKUP</span>
+<span class="font-label-data-dim text-label-data-dim text-on-surface-variant uppercase">TUNNEL KILN HEADQUARTERS • BULK FREIGHT VERIFIED</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-label-technical text-label-technical text-primary font-bold">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+              TCVN 1450:2009 COMPLIANT
+            </div>
+</div>
+</div>
+<!-- Right Column: Visual Machinery & Yard Showcase (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<div class="relative w-full aspect-[4/3] bg-surface-container shadow-xl overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High-resolution industrial documentary photograph of automated tunnel kiln brick manufacturing plant with thousands of stacked red clay bricks on precision rail carts, warm ambient heat glow, heavy steel crane arm loading onto industrial flatbed truck, dramatic sharp lighting, engineered brutalist construction atmosphere with terracotta and slate tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0AymSacbQB39w-XHYKsUF1DodKqhqS997MRUPejwtGvutQLHdTNPZnTBu4ahCk8UljZKBhQLVR_wh76PO8995UCzs1bjSLSN_m8_2p8n-T-vS566B-ai6AZdisH76Rro4RkHGf0PyA1__U8-THFfj3csfLE-yHyfzYGzsN_UZiXRwizfa5H4V2g5hSVTeJkmUNeUKkQV28RUS47NoCbqoO_BGBgM1kXL00s-5ntfoZqOvgu0Bb9I4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 via-inverse-surface/30 to-transparent flex flex-col justify-end p-space-md">
+<span class="font-label-badge text-label-badge bg-primary text-on-primary px-space-xs py-0.5 uppercase tracking-wider self-start mb-space-xs">
+                KILN CRANE DEPLOYMENT #09
+              </span>
+<p class="font-headline-sm text-headline-sm uppercase text-inverse-on-surface tracking-wide">
+                Direct Flatbed Loading • Automated Batch 882-C
+              </p>
+<div class="flex items-center justify-between text-secondary-fixed text-label-data-dim font-label-data-dim uppercase pt-1">
+<span>Tolerance: ±1.5mm</span>
+<span>Vitrified Tunnel Temp: 1040°C</span>
+</div>
+</div>
+</div>
+<!-- Micro Sensor Data Module -->
+<div class="grid grid-cols-2 gap-space-xs p-space-xs bg-inverse-surface text-inverse-on-surface shadow-sm">
+<div class="p-space-xs bg-inverse-surface flex flex-col">
+<span class="font-label-data-dim text-label-data-dim text-secondary-fixed-dim uppercase">Kiln Thermocouple T-04</span>
+<span class="font-label-technical text-headline-sm text-primary-fixed">1,048°C STABLE</span>
+</div>
+<div class="p-space-xs bg-inverse-surface flex flex-col">
+<span class="font-label-data-dim text-label-data-dim text-secondary-fixed-dim uppercase">Compression Rating</span>
+<span class="font-label-technical text-headline-sm text-tertiary-fixed">M100 - M150+</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Dispatch Stats Ticker Bar -->
+<div class="mt-space-lg grid grid-cols-1 md:grid-cols-3 gap-space-sm">
+<div class="bg-surface-container-lowest p-space-sm shadow-sm flex items-center gap-space-md">
+<div class="p-space-xs bg-secondary-container text-on-secondary-container">
+<span class="material-symbols-outlined text-[28px]">local_shipping</span>
+</div>
+<div class="flex flex-col">
+<span class="font-display-hero text-headline-md uppercase text-primary leading-none">18 TRUCKS</span>
+<span class="font-label-technical text-label-technical uppercase text-on-surface-variant">Active Flatbed &amp; Crane Units En Route</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm shadow-sm flex items-center gap-space-md">
+<div class="p-space-xs bg-tertiary-fixed text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[28px]">domain</span>
+</div>
+<div class="flex flex-col">
+<span class="font-display-hero text-headline-md uppercase text-on-surface leading-none">450,000 PCS</span>
+<span class="font-label-technical text-label-technical uppercase text-on-surface-variant">Daily Automated Tunnel Kiln Output</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm shadow-sm flex items-center gap-space-md">
+<div class="p-space-xs bg-primary-fixed text-on-primary-fixed">
+<span class="material-symbols-outlined text-[28px]">timer</span>
+</div>
+<div class="flex flex-col">
+<span class="font-display-hero text-headline-md uppercase text-tertiary leading-none">28 MINS</span>
+<span class="font-label-technical text-label-technical uppercase text-on-surface-variant">Average Jobsite Slab Drop Time</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: TRUST & ASSURANCE BADGES BAR -->
+<section class="w-full bg-surface-container-highest py-space-md shadow-inner">
+<div class="max-w-[1440px] mx-auto px-margin lg:px-margin-desktop">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Badge 1 -->
+<div class="bg-surface-container-lowest p-space-md shadow-sm flex flex-col justify-between h-full">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-badge text-label-badge bg-primary text-on-primary px-space-xs uppercase">DIRECT SAVINGS</span>
+<span class="material-symbols-outlined text-primary text-[20px]">factory</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm uppercase text-on-surface leading-snug">FACTORY DIRECT KILN</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Sourced straight from high-efficiency tunnel kilns, bypassing middlemen markups and saving 15–22% per bulk pallet.
+            </p>
+</div>
+<span class="font-label-data-dim text-label-data-dim text-primary uppercase font-bold mt-space-sm">DISPATCH YARD SPEC: GRADE 1A</span>
+</div>
+<!-- Badge 2 -->
+<div class="bg-surface-container-lowest p-space-md shadow-sm flex flex-col justify-between h-full">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-badge text-label-badge bg-inverse-surface text-inverse-on-surface px-space-xs uppercase">TELEMETRY</span>
+<span class="material-symbols-outlined text-on-surface text-[20px]">gps_fixed</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm uppercase text-on-surface leading-snug">GUARANTEED ON-TIME</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Live GPS tracked haulage with dedicated offload crane service placed safely right to your structural foundation slab.
+            </p>
+</div>
+<span class="font-label-data-dim text-label-data-dim text-secondary uppercase font-bold mt-space-sm">4-HOUR DISPATCH WINDOW</span>
+</div>
+<!-- Badge 3 -->
+<div class="bg-surface-container-lowest p-space-md shadow-sm flex flex-col justify-between h-full">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-badge text-label-badge bg-tertiary text-on-tertiary px-space-xs uppercase">LAB CERTIFIED</span>
+<span class="material-symbols-outlined text-tertiary text-[20px]">inventory_2</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm uppercase text-on-surface leading-snug">ASTM / TCVN COMPLIANT</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Certified crushing compressive strength &gt; 100 kg/cm², vitrified water absorption strictly under 12%.
+            </p>
+</div>
+<span class="font-label-data-dim text-label-data-dim text-tertiary uppercase font-bold mt-space-sm">THIRD-PARTY LAB MONITORED</span>
+</div>
+<!-- Badge 4 -->
+<div class="bg-surface-container-lowest p-space-md shadow-sm flex flex-col justify-between h-full">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-badge text-label-badge bg-primary-container text-on-primary px-space-xs uppercase">ZERO LOSS GUARANTEE</span>
+<span class="material-symbols-outlined text-primary-container text-[20px]">shield</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm uppercase text-on-surface leading-snug">ZERO CRACK ASSURANCE</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Heavy poly-strapped pallets. Instant free jobsite replacement for any transit breakage exceeding 1.5%.
+            </p>
+</div>
+<span class="font-label-data-dim text-label-data-dim text-primary uppercase font-bold mt-space-sm">DRIVER SIGN-OFF ON SLAB</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: PRODUCT SPECIFICATION & ORDERING GRID -->
+<section class="w-full py-space-xl bg-surface" id="spec-grid">
+<div class="max-w-[1440px] mx-auto px-margin lg:px-margin-desktop flex flex-col gap-space-lg">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+<div>
+<span class="font-label-technical text-label-technical uppercase text-primary font-bold">STRUCTURAL CERAMIC CATALOG</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">KILN PRODUCT MATRIX &amp; SPECIFICATIONS</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+            Engineered masonry manufactured under computerized temperature control for high-density load distribution and acoustic isolation.
+          </p>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-technical text-label-technical text-on-surface-variant uppercase">BULK PRICING: EX-WORKS KILN OR DELIVERED</span>
+</div>
+</div>
+<!-- Product Grid (4 Items) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Item 1: Heavy-Duty 4-Hole Clay Brick -->
+<div class="bg-surface-container-lowest shadow-md flex flex-col justify-between hover:shadow-xl transition-shadow">
+<div>
+<!-- Visual Thumb -->
+<div class="relative w-full aspect-[4/3] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up architectural detail of stacked red terracotta 4-hole clay bricks with crisp sharp edges, textured clay aggregate surface, industrial packaging straps visible, dramatic directional lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFeWYEIEvImtc2GRlVQPQ4fOLHT92RA3odBRmrybf_YoRg7yiGyoF0fUAqFlvH6csfy838Q9iZwz3JyCmK2JYqZezNlsO3ox0TtYXMHsk8quX3DHCveFveg3xSI9gT5iO0aK_AQ_5cdBugqDU3deQsokCfYtXYz-OfcT_s4ogJE2YW_6IIkuhmIZm6-0JBt2wUEQCaAKcdDTnXRzQ2yTFV_TGv4Sp-QvYeqqcfZLLiY12G2p9ScAkv"/>
+<span class="absolute top-2 left-2 font-label-badge text-label-badge bg-primary text-on-primary px-space-xs py-0.5 uppercase">
+                MOST POPULAR
+              </span>
+</div>
+<!-- Header Info -->
+<div class="p-space-md">
+<span class="font-label-data-dim text-label-data-dim text-on-surface-variant uppercase">SKU: KHL-4H-TUYNEL</span>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface mt-1 leading-snug">Heavy-Duty 4-Hole Clay Brick</h3>
+<span class="font-label-technical text-label-technical text-primary font-bold">Gạch Tuynel 4 Lỗ Tiêu Chuẩn</span>
+<!-- Technical Data Sheet Rows -->
+<div class="mt-space-sm flex flex-col gap-1 text-label-technical text-label-technical">
+<div class="flex justify-between py-1 bg-surface-container-low px-2">
+<span class="text-on-surface-variant">Dimensions</span>
+<span class="text-on-surface font-bold">80×80×180 mm</span>
+</div>
+<div class="flex justify-between py-1 px-2">
+<span class="text-on-surface-variant">Tolerance</span>
+<span class="text-on-surface font-bold">±2.0 mm</span>
+</div>
+<div class="flex justify-between py-1 bg-surface-container-low px-2">
+<span class="text-on-surface-variant">Compressive Strength</span>
+<span class="text-primary font-bold">M75 - M100</span>
+</div>
+<div class="flex justify-between py-1 px-2">
+<span class="text-on-surface-variant">Unit Weight</span>
+<span class="text-on-surface font-bold">1.35 kg/piece</span>
+</div>
+<div class="flex justify-between py-1 bg-surface-container-low px-2">
+<span class="text-on-surface-variant">Pallet Packaging</span>
+<span class="text-on-surface font-bold">750 pcs/pallet</span>
+</div>
+<div class="flex justify-between py-1 px-2">
+<span class="text-on-surface-variant">Min Kiln Order</span>
+<span class="text-on-surface font-bold">3,000 pcs (4 Pallets)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Bottom Action -->
+<div class="p-space-md pt-0">
+<div class="flex items-baseline justify-between mb-space-sm pt-space-xs">
+<span class="font-display-hero text-headline-lg text-primary">$0.11</span>
+<span class="font-label-technical text-label-technical text-on-surface-variant uppercase">1,150 đ / Pc</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<button class="w-full py-space-xs bg-primary-container hover:bg-primary text-on-primary font-headline-sm text-headline-sm uppercase transition-colors flex items-center justify-center gap-1" onclick="addFreightItem('Heavy-Duty 4-Hole Clay Brick', 0.11, 1.35)">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+                Add to Freight Calc
+              </button>
+<button class="w-full py-space-xs bg-surface-container hover:bg-surface-container-high text-on-surface font-headline-sm text-headline-sm uppercase transition-colors text-center">
+                Order Sample Pallet
+              </button>
+</div>
+</div>
+</div>
+<!-- Item 2: Solid High-Strength Engineering Brick -->
+<div class="bg-surface-container-lowest shadow-md flex flex-col justify-between hover:shadow-xl transition-shadow">
+<div>
+<div class="relative w-full aspect-[4/3] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="High density solid engineering clay bricks stacked in precise industrial rows, dark terracotta red with vitrified finish, sharp edges and minimal porosity, architectural technical photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLr3v1GFBf5nHVufL-sBk6m_hq3xkHmvWlo6_XWlyab-1SpU9r-VD1coK9BUEK_-ly2s4X09ChJ9jdcaTARGvigwQUFuUe3p5dExjqTzCbzlJQrkFCV3Fp5shmF6SlxxyL5ApntZXNI6wdT4cTdAHL-4UXOrpHdX2YfGxBdhKGik9pvNvInSYFOsZTxtxhH8JAACJVshXIb7aZeKFZZAjD4NMgyyRxjwZeX5X_THERPF5g8WYTYshE"/>
+<span class="absolute top-2 left-2 font-label-badge text-label-badge bg-inverse-surface text-inverse-on-surface px-space-xs py-0.5 uppercase">
+                LOAD-BEARING • PILLARS
+              </span>
+</div>
+<div class="p-space-md">
+<span class="font-label-data-dim text-label-data-dim text-on-surface-variant uppercase">SKU: KHL-SOL-M150</span>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface mt-1 leading-snug">Solid Engineering Brick</h3>
+<span class="font-label-technical text-label-technical text-primary font-bold">Gạch Đặc Tuynel Cường Độ Cao</span>
+<div class="mt-space-sm flex flex-col gap-1 text-label-technical text-label-technical">
+<div class="flex justify-between py-1 bg-surface-container-low px-2">
+<span class="text-on-surface-variant">Dimensions</span>
+<span class="text-on-surface font-bold">60×105×210 mm</span>
+</div>
+<div class="flex justify-between py-1 px-2">
+<span class="text-on-surface-variant">Tolerance</span>
+<span class="text-on-surface font-bold">±1.5 mm</span>
+</div>
+<div class="flex justify-between py-1 bg-surface-container-low px-2">
+<span class="text-on-surface-variant">Compressive Strength</span>
+<span class="text-primary font-bold">M150+ Heavy</span>
+</div>
+<div class="flex justify-between py-1 px-2">
+<span class="text-on-surface-variant">Unit Weight</span>
+<span class="text-on-surface font-bold">2.20 kg/piece</span>
+</div>
+<div class="flex justify-between py-1 bg-surface-container-low px-2">
+<span class="text-on-surface-variant">Pallet Packaging</span>
+<span class="text-on-surface font-bold">500 pcs/pallet</span>
+</div>
+<div class="flex justify-between py-1 px-2">
+<span class="text-on-surface-variant">Min Kiln Order</span>
+<span class="text-on-surface font-bold">2,500 pcs (5 Pallets)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-space-md pt-0">
+<div class="flex items-baseline justify-between mb-space-sm pt-space-xs">
+<span class="font-display-hero text-headline-lg text-primary">$0.18</span>
+<span class="font-label-technical text-label-technical text-on-surface-variant uppercase">1,850 đ / Pc</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<button class="w-full py-space-xs bg-primary-container hover:bg-primary text-on-primary font-headline-sm text-headline-sm uppercase transition-colors flex items-center justify-center gap-1" onclick="addFreightItem('Solid High-Strength Engineering Brick', 0.18, 2.20)">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+                Add to Freight Calc
+              </button>
+<button class="w-full py-space-xs bg-surface-container hover:bg-surface-container-high text-on-surface font-headline-sm text-headline-sm uppercase transition-colors text-center">
+                Tech Specs PDF
+              </button>
+</div>
+</div>
+</div>
+<!-- Item 3: Acoustic 2-Hole Partition Brick -->
+<div class="bg-surface-container-lowest shadow-md flex flex-col justify-between hover:shadow-xl transition-shadow">
+<div>
+<div class="relative w-full aspect-[4/3] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Double core hollow acoustic clay brick on architectural blueprint background with measuring calipers beside it, clean industrial studio lighting, sharp terracotta textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbW7LrTn35q8pMaWZakPliC2K9ObEnml6ED-5jEhVIDdb5xp1q4e-NfJmjOwz7mpxELx2OXAmYmqERWvDyr4EP6XTU2AfGNrD9Ke3tod-nju7atQmIC7PMCH5lWt4PFhfzK1LkpRit2mGvt1iGAmq8rwrVSqj8CUxeXRjQR7nyWSB0O4ITGat7KVmq8d_UA-bWPK7ffaRmZKDBpUBskkTycr0-wBdPUhwNXjsHZPuTMp6V94tu5y8r"/>
+<span class="absolute top-2 left-2 font-label-badge text-label-badge bg-tertiary text-on-tertiary px-space-xs py-0.5 uppercase">
+                ACOUSTIC INSULATION
+              </span>
+</div>
+<div class="p-space-md">
+<span class="font-label-data-dim text-label-data-dim text-on-surface-variant uppercase">SKU: KHL-2H-ACOUSTIC</span>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface mt-1 leading-snug">Acoustic Partition Brick</h3>
+<span class="font-label-technical text-label-technical text-primary font-bold">Gạch Đôi Cách Âm 2 Lỗ</span>
+<div class="mt-space-sm flex flex-col gap-1 text-label-technical text-label-technical">
+<div class="flex justify-between py-1 bg-surface-container-low px-2">
+<span class="text-on-surface-variant">Dimensions</span>
+<span class="text-on-surface font-bold">100×150×210 mm</span>
+</div>
+<div class="flex justify-between py-1 px-2">
+<span class="text-on-surface-variant">Tolerance</span>
+<span class="text-on-surface font-bold">±2.0 mm</span>
+</div>
+<div class="flex justify-between py-1 bg-surface-container-low px-2">
+<span class="text-on-surface-variant">Compressive Strength</span>
+<span class="text-primary font-bold">M75 Spec</span>
+</div>
+<div class="flex justify-between py-1 px-2">
+<span class="text-on-surface-variant">Unit Weight</span>
+<span class="text-on-surface font-bold">2.80 kg/piece</span>
+</div>
+<div class="flex justify-between py-1 bg-surface-container-low px-2">
+<span class="text-on-surface-variant">Pallet Packaging</span>
+<span class="text-on-surface font-bold">420 pcs/pallet</span>
+</div>
+<div class="flex justify-between py-1 px-2">
+<span class="text-on-surface-variant">Min Kiln Order</span>
+<span class="text-on-surface font-bold">2,000 pcs (5 Pallets)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-space-md pt-0">
+<div class="flex items-baseline justify-between mb-space-sm pt-space-xs">
+<span class="font-display-hero text-headline-lg text-primary">$0.24</span>
+<span class="font-label-technical text-label-technical text-on-surface-variant uppercase">2,450 đ / Pc</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<button class="w-full py-space-xs bg-primary-container hover:bg-primary text-on-primary font-headline-sm text-headline-sm uppercase transition-colors flex items-center justify-center gap-1" onclick="addFreightItem('Acoustic 2-Hole Partition Brick', 0.24, 2.80)">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+                Add to Freight Calc
+              </button>
+<button class="w-full py-space-xs bg-surface-container hover:bg-surface-container-high text-on-surface font-headline-sm text-headline-sm uppercase transition-colors text-center">
+                Acoustic Lab Report
+              </button>
+</div>
+</div>
+</div>
+<!-- Item 4: Interlocking Solid Paver / Footing Block -->
+<div class="bg-surface-container-lowest shadow-md flex flex-col justify-between hover:shadow-xl transition-shadow">
+<div>
+<div class="relative w-full aspect-[4/3] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Heavy industrial interlocking concrete clay pavers stacked neatly outdoors at job site depot with yellow safety lines, engineered compression paving blocks with high friction texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDloO07v79aG-EjxoLVX4ExfhyC1we_l_UtXPX9MhlaPnZQGmSX1riU__6RU7q9BlggU6bwg59OZuAzrOboab51PWbxsZcI-oibepktkkKVlIFQRpr1yitGpCmM_qUyhBQIZsS-IKjGL1hi80T235A3Joy2pavZusIXHcFliUD1skdw1HdH5Rarr0aCA_PZAxbC55IJE0ak581N3SLGVjYV0fV63AiyHvr2-lwi0xKZM_2937oa1uD-"/>
+<span class="absolute top-2 left-2 font-label-badge text-label-badge bg-secondary text-on-secondary px-space-xs py-0.5 uppercase">
+                HEAVY TRAFFIC FLOOR
+              </span>
+</div>
+<div class="p-space-md">
+<span class="font-label-data-dim text-label-data-dim text-on-surface-variant uppercase">SKU: KHL-PAV-M250</span>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface mt-1 leading-snug">Autoclaved Solid Paver</h3>
+<span class="font-label-technical text-label-technical text-primary font-bold">Gạch Tự Chèn Chịu Lực M250</span>
+<div class="mt-space-sm flex flex-col gap-1 text-label-technical text-label-technical">
+<div class="flex justify-between py-1 bg-surface-container-low px-2">
+<span class="text-on-surface-variant">Dimensions</span>
+<span class="text-on-surface font-bold">100×200×60 mm</span>
+</div>
+<div class="flex justify-between py-1 px-2">
+<span class="text-on-surface-variant">Tolerance</span>
+<span class="text-on-surface font-bold">±1.0 mm</span>
+</div>
+<div class="flex justify-between py-1 bg-surface-container-low px-2">
+<span class="text-on-surface-variant">Compressive Strength</span>
+<span class="text-primary font-bold">M250 Industrial</span>
+</div>
+<div class="flex justify-between py-1 px-2">
+<span class="text-on-surface-variant">Unit Weight</span>
+<span class="text-on-surface font-bold">3.10 kg/piece</span>
+</div>
+<div class="flex justify-between py-1 bg-surface-container-low px-2">
+<span class="text-on-surface-variant">Pallet Packaging</span>
+<span class="text-on-surface font-bold">400 pcs/pallet</span>
+</div>
+<div class="flex justify-between py-1 px-2">
+<span class="text-on-surface-variant">Min Kiln Order</span>
+<span class="text-on-surface font-bold">1,600 pcs (4 Pallets)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-space-md pt-0">
+<div class="flex items-baseline justify-between mb-space-sm pt-space-xs">
+<span class="font-display-hero text-headline-lg text-primary">$0.32</span>
+<span class="font-label-technical text-label-technical text-on-surface-variant uppercase">3,200 đ / Pc</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<button class="w-full py-space-xs bg-primary-container hover:bg-primary text-on-primary font-headline-sm text-headline-sm uppercase transition-colors flex items-center justify-center gap-1" onclick="addFreightItem('Autoclaved Solid Paver', 0.32, 3.10)">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+                Add to Freight Calc
+              </button>
+<button class="w-full py-space-xs bg-surface-container hover:bg-surface-container-high text-on-surface font-headline-sm text-headline-sm uppercase transition-colors text-center">
+                Pavement Load Chart
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: QUICK SHIPPING COST CALCULATOR (INTERACTIVE INDUSTRIAL CONSOLE) -->
+<section class="w-full py-space-xl bg-surface-container-high" id="freight-calc">
+<div class="max-w-[1440px] mx-auto px-margin lg:px-margin-desktop">
+<!-- Console Wrapper -->
+<div class="bg-surface-container-lowest shadow-2xl p-space-md lg:p-space-lg">
+<!-- Console Head -->
+<div class="flex flex-wrap items-center justify-between pb-space-sm mb-space-md bg-inverse-surface text-inverse-on-surface p-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 bg-primary animate-pulse"></span>
+<span class="font-label-technical text-headline-sm uppercase text-primary-fixed">KILN FREIGHT ENGINE • TELEMETRY CONSOLE v4.2</span>
+</div>
+<span class="font-label-data-dim text-label-data-dim text-secondary-fixed uppercase">GPS TARIFF MATRIX • REAL-TIME SLAB DISPATCH RATES</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Interactive Input Form (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Input 1: Select Brick Type -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-technical text-label-technical uppercase text-on-surface font-bold flex items-center justify-between" for="brick-select">
+<span>1. Select Structural Brick Specification</span>
+<span class="text-primary font-normal" id="selected-weight-badge">1.35 KG / UNIT</span>
+</label>
+<select class="w-full p-space-sm bg-surface-container-lowest text-on-surface font-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary" id="brick-select">
+<option data-weight="1.35" selected="" value="0.11">Heavy-Duty 4-Hole Clay Brick (80x80x180mm) - $0.11 / pc</option>
+<option data-weight="2.20" value="0.18">Solid High-Strength Engineering Brick (60x105x210mm) - $0.18 / pc</option>
+<option data-weight="2.80" value="0.24">Acoustic 2-Hole Partition Brick (100x150x210mm) - $0.24 / pc</option>
+<option data-weight="3.10" value="0.32">Autoclaved Interlocking Solid Paver (100x200x60mm) - $0.32 / pc</option>
+</select>
+</div>
+<!-- Input 2: Quantity Required (Slider + Number input) -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-technical text-label-technical uppercase text-on-surface font-bold" for="brick-qty">
+                  2. Quantity Required (Pieces)
+                </label>
+<span class="font-label-data-dim text-label-data-dim text-on-surface-variant uppercase">
+                  Approx. <strong class="text-on-surface" id="pallet-count-label">20</strong> Pallets
+                </span>
+</div>
+<div class="flex items-center gap-space-sm">
+<input class="w-full accent-primary h-2 bg-surface-container-highest cursor-pointer" id="qty-slider" max="60000" min="3000" step="500" type="range" value="15000"/>
+<div class="relative w-44">
+<input class="w-full p-space-xs bg-surface-container-lowest text-on-surface font-label-technical text-label-technical font-bold text-right pr-12 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary" id="brick-qty" max="100000" min="1000" type="number" value="15000"/>
+<span class="absolute right-2 top-2 font-label-data-dim text-label-data-dim text-on-surface-variant">PCS</span>
+</div>
+</div>
+</div>
+<!-- Input 3: Jobsite Corridor & Distance -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-technical text-label-technical uppercase text-on-surface font-bold" for="zone-select">
+                3. Delivery Jobsite Zone / Corridor
+              </label>
+<select class="w-full p-space-sm bg-surface-container-lowest text-on-surface font-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary" id="zone-select">
+<option selected="" value="24">Zone 1: District 9 Industrial Corridor, High-Tech Park (24 KM from Kiln)</option>
+<option value="12">Zone 2: Binh Duong Heavy Industrial Depot, VSIP-1 (12 KM from Kiln)</option>
+<option value="38">Zone 3: Dong Nai Amata &amp; Bien Hoa Expanded (38 KM from Kiln)</option>
+<option value="65">Zone 4: Long Thanh Airport Project Perimeter (65 KM from Kiln)</option>
+<option value="90">Zone 5: Ba Ria - Vung Tau Port &amp; Logistics Hub (90 KM from Kiln)</option>
+</select>
+</div>
+<!-- Input 4: Haulage & Offloading Vehicle Choice -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-technical text-label-technical uppercase text-on-surface font-bold">
+                4. Select Offloading &amp; Fleet Logistics Mode
+              </span>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<label class="p-space-sm bg-surface-container-low cursor-pointer flex items-start gap-space-xs has-[:checked]:bg-secondary-container transition-colors">
+<input checked="" class="mt-1 accent-primary" name="fleet_mode" type="radio" value="crane"/>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm uppercase text-on-surface leading-tight">Crane Self-Offload (Xe Cẩu)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Direct boom arm drops pallets straight onto ground level or floor slab. No manual labor needed.</span>
+</div>
+</label>
+<label class="p-space-sm bg-surface-container-low cursor-pointer flex items-start gap-space-xs has-[:checked]:bg-secondary-container transition-colors">
+<input class="mt-1 accent-primary" name="fleet_mode" type="radio" value="flatbed"/>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm uppercase text-on-surface leading-tight">15T Tipper / Flatbed</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Direct bulk drop or contractor forklift required on site. Lower transport cost for large civil yards.</span>
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- Live Breakdown Telemetry Box (5 Cols) -->
+<div class="lg:col-span-5 bg-inverse-surface text-inverse-on-surface p-space-md flex flex-col justify-between shadow-xl">
+<div>
+<div class="flex items-center justify-between pb-space-xs mb-space-sm border-b border-surface-variant/20">
+<span class="font-label-badge text-label-badge bg-primary text-on-primary px-space-xs uppercase">REAL-TIME QUOTE</span>
+<span class="font-label-data-dim text-label-data-dim text-secondary-fixed">ESTIMATE ID #KL-9402</span>
+</div>
+<!-- Line Items -->
+<div class="flex flex-col gap-space-xs font-label-technical text-label-technical">
+<div class="flex justify-between py-1 text-inverse-on-surface">
+<span class="text-secondary-fixed-dim">Material Subtotal (Kiln Direct):</span>
+<span class="font-bold text-surface-bright" id="calc-material">$1,650.00</span>
+</div>
+<div class="flex justify-between py-1 text-inverse-on-surface">
+<span class="text-secondary-fixed-dim">Estimated Payload Weight:</span>
+<span class="font-bold text-tertiary-fixed" id="calc-weight">20.25 Metric Tons</span>
+</div>
+<div class="flex justify-between py-1 text-inverse-on-surface">
+<span class="text-secondary-fixed-dim">Dedicated Fleet Haulage:</span>
+<span class="font-bold text-surface-bright" id="calc-freight">$180.00</span>
+</div>
+<div class="flex justify-between py-1 text-inverse-on-surface">
+<span class="text-secondary-fixed-dim">Crane Precision Drop Fee:</span>
+<span class="font-bold text-surface-bright" id="calc-crane">$45.00</span>
+</div>
+<div class="flex justify-between py-1 text-inverse-on-surface">
+<span class="text-secondary-fixed-dim">Transit Loss Replacement Ins:</span>
+<span class="font-bold text-primary-fixed">INCLUDED (0.00)</span>
+</div>
+</div>
+<!-- Grand Total Block -->
+<div class="mt-space-md p-space-sm bg-surface-container-lowest text-on-surface shadow-md">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-sm text-headline-sm uppercase text-on-surface">Est. Total Delivered</span>
+<span class="font-display-hero text-headline-lg text-primary" id="calc-grand-total">$1,875.00</span>
+</div>
+<div class="flex justify-between font-label-data-dim text-label-data-dim text-on-surface-variant mt-1 uppercase">
+<span>Delivered Unit Rate: <strong class="text-on-surface" id="calc-per-pc">$0.125 / PC</strong></span>
+<span>Currency: USD / VND Equivalent</span>
+</div>
+</div>
+<!-- Live Dispatch ETA -->
+<div class="mt-space-sm p-space-xs bg-tertiary-container text-on-tertiary-container flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+<span class="font-label-technical text-label-technical uppercase">
+                  Est. Delivery: <strong>Today by 15:30</strong> (Confirm within 35 mins)
+                </span>
+</div>
+</div>
+<!-- Lock-in CTA -->
+<div class="mt-space-md flex flex-col gap-space-xs">
+<button class="w-full py-space-md bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-headline-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-lg" onclick="lockQuote()">
+<span class="material-symbols-outlined text-[22px]">lock</span>
+                Lock In Freight Rate &amp; Dispatch Truck
+              </button>
+<span class="font-label-data-dim text-label-data-dim text-secondary-fixed text-center uppercase">
+                Instant digital dispatch manifest generated • No upfront deposit for verified corporate contractors
+              </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: FLEET & HAULAGE CAPABILITY SHOWCASE -->
+<section class="w-full py-space-xl bg-surface">
+<div class="max-w-[1440px] mx-auto px-margin lg:px-margin-desktop flex flex-col gap-space-lg">
+<!-- Section Title -->
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<span class="font-label-technical text-label-technical uppercase text-primary font-bold">COMMERCIAL LOGISTICS FLEET</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">ENGINEERED DISPATCH: FROM TUNNEL KILN TO FOUNDATION SLAB</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          We do not subcontract haulage. Our proprietary crane-equipped carrier fleet operates under strict ISO 9001 load safety protocols to guarantee zero jobsite unloading downtime.
+        </p>
+</div>
+<!-- Fleet Matrix Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Fleet Unit 1 -->
+<div class="bg-surface-container-lowest shadow-md p-space-md flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-badge text-label-badge bg-inverse-surface text-inverse-on-surface px-space-xs uppercase">URBAN CONGESTION PERMIT</span>
+<span class="font-label-data-dim text-label-data-dim text-on-surface-variant">FLEET #KHL-05T</span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface">5-Ton Urban Access Crane</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Engineered for tight inner-city alleyways, narrow residential access lanes, and restricted urban daytime zones.
+            </p>
+<div class="mt-space-sm flex flex-col gap-1 text-label-technical text-label-technical bg-surface-container-low p-space-xs">
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Payload Capacity</span>
+<span class="text-on-surface font-bold">3,500 - 4,200 Pcs</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Boom Arm Reach</span>
+<span class="text-on-surface font-bold">8.5 Meters</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Slab Unload Time</span>
+<span class="text-primary font-bold">18 Mins</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center gap-space-xs text-primary font-label-technical text-label-technical uppercase font-bold">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+            32 Active Urban Units Available
+          </div>
+</div>
+<!-- Fleet Unit 2 -->
+<div class="bg-surface-container-lowest shadow-md p-space-md flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-badge text-label-badge bg-primary text-on-primary px-space-xs uppercase">CORE WORKHORSE</span>
+<span class="font-label-data-dim text-label-data-dim text-on-surface-variant">FLEET #KHL-15T</span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface">15-Ton 3-Axle Self-Loader</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Heavy hydraulic boom crane mounted behind driver cabin. Drops whole pallets over foundation perimeter walls.
+            </p>
+<div class="mt-space-sm flex flex-col gap-1 text-label-technical text-label-technical bg-surface-container-low p-space-xs">
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Payload Capacity</span>
+<span class="text-on-surface font-bold">11,000 - 14,000 Pcs</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Boom Arm Reach</span>
+<span class="text-on-surface font-bold">14.2 Meters</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Slab Unload Time</span>
+<span class="text-primary font-bold">25 Mins</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center gap-space-xs text-primary font-label-technical text-label-technical uppercase font-bold">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+            54 Active Tri-Axle Units Available
+          </div>
+</div>
+<!-- Fleet Unit 3 -->
+<div class="bg-surface-container-lowest shadow-md p-space-md flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-badge text-label-badge bg-tertiary text-on-tertiary px-space-xs uppercase">MEGA INDUSTRIAL SITES</span>
+<span class="font-label-data-dim text-label-data-dim text-on-surface-variant">FLEET #KHL-30T</span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface">30-Ton Semi-Trailer Carrier</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              High-payload bulk hauler for multi-hectare industrial warehouses, commercial compounds, and high-rise foundations.
+            </p>
+<div class="mt-space-sm flex flex-col gap-1 text-label-technical text-label-technical bg-surface-container-low p-space-xs">
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Payload Capacity</span>
+<span class="text-on-surface font-bold">22,000 - 28,000 Pcs</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Trailer Bed Length</span>
+<span class="text-on-surface font-bold">13.6 Meters Flatbed</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Offload Support</span>
+<span class="text-primary font-bold">On-Site Forklift / Crane</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center gap-space-xs text-primary font-label-technical text-label-technical uppercase font-bold">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+            28 Dedicated Semi Units Available
+          </div>
+</div>
+</div>
+<!-- Step-by-Step Logistics Flow Diagram -->
+<div class="p-space-md bg-surface-container-low shadow-sm mt-space-md">
+<h4 class="font-headline-sm text-headline-sm uppercase text-on-surface mb-space-sm text-center">
+          PRECISION DISPATCH LIFECYCLE: 4 SIMPLE PHASES
+        </h4>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<div class="flex flex-col gap-1 bg-surface-container-lowest p-space-sm shadow-sm">
+<span class="font-display-hero text-headline-lg text-primary leading-none">01</span>
+<span class="font-headline-sm text-headline-sm uppercase text-on-surface">Kiln Automated Strapping</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Fired clay cools in tunnel chamber, robots palletize and heat-shrink wrap each batch with heavy poly-strapping.
+            </p>
+</div>
+<div class="flex flex-col gap-1 bg-surface-container-lowest p-space-sm shadow-sm">
+<span class="font-display-hero text-headline-lg text-primary leading-none">02</span>
+<span class="font-headline-sm text-headline-sm uppercase text-on-surface">Precision Crane Rigging</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Specialized hydraulic pallet forks hoist material directly onto truck beds without abrasive friction or edge chipping.
+            </p>
+</div>
+<div class="flex flex-col gap-1 bg-surface-container-lowest p-space-sm shadow-sm">
+<span class="font-display-hero text-headline-lg text-primary leading-none">03</span>
+<span class="font-headline-sm text-headline-sm uppercase text-on-surface">Digital Weighbridge Seal</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Every unit passes our automated digital weight scales; tare and gross weights logged to generate an authenticated jobsite bill.
+            </p>
+</div>
+<div class="flex flex-col gap-1 bg-surface-container-lowest p-space-sm shadow-sm">
+<span class="font-display-hero text-headline-lg text-primary leading-none">04</span>
+<span class="font-headline-sm text-headline-sm uppercase text-on-surface">Direct Slab Placement</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Our certified crane operator places pallets directly on designated floor locations. Driver signs inspection manifest on-site.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 6: TESTIMONIALS & CONTRACTOR VERIFICATIONS -->
+<section class="w-full py-space-xl bg-surface-container-highest">
+<div class="max-w-[1440px] mx-auto px-margin lg:px-margin-desktop flex flex-col gap-space-lg">
+<div class="flex flex-col items-center text-center gap-space-xs max-w-2xl mx-auto">
+<span class="font-label-technical text-label-technical uppercase text-primary font-bold">VERIFIED JOBSITE REPORTS</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">TRUSTED BY TIER-1 GENERAL CONTRACTORS</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Over 4.8 million bricks delivered this quarter across 140+ active commercial development zones.
+        </p>
+</div>
+<!-- Testimonial Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Testimonial 1 -->
+<div class="bg-surface-container-lowest p-space-md shadow-md flex flex-col justify-between">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic mt-space-xs">
+              “On a 12-story commercial project, a late brick delivery costs us $1,200 an hour in idle mason crews. Kiln &amp; Haul’s direct crane delivery drops pallets right on the second-story staging floor at 06:00 sharp. Zero chipped edges.”
+            </p>
+</div>
+<div class="pt-space-md flex flex-col">
+<span class="font-headline-sm text-headline-sm uppercase text-on-surface">Dang Minh Quan</span>
+<span class="font-label-data-dim text-label-data-dim text-on-surface-variant uppercase">Senior Site Lead • Vinaconex Commercial Works</span>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-surface-container-lowest p-space-md shadow-md flex flex-col justify-between">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic mt-space-xs">
+              “We bypassed two local distributor middlemen and saved over 18% on our factory shell construction. The compressive test reports from their Paver M250 matched our independent lab tests down to the decimal point.”
+            </p>
+</div>
+<div class="pt-space-md flex flex-col">
+<span class="font-headline-sm text-headline-sm uppercase text-on-surface">Marcus Vance</span>
+<span class="font-label-data-dim text-label-data-dim text-on-surface-variant uppercase">Procurement Director • Apex Logistics Hubs</span>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-surface-container-lowest p-space-md shadow-md flex flex-col justify-between">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic mt-space-xs">
+              “The live GPS dispatch tracking and direct Zalo quote service gives our foreman peace of mind. When we needed an emergency 5-ton crane run on Saturday afternoon, the truck was on our slab within 90 minutes.”
+            </p>
+</div>
+<div class="pt-space-md flex flex-col">
+<span class="font-headline-sm text-headline-sm uppercase text-on-surface">Tran Huu Bac</span>
+<span class="font-label-data-dim text-label-data-dim text-on-surface-variant uppercase">General Contractor • Bac Ninh Industrial Build</span>
+</div>
+</div>
+</div>
+<!-- Contractor Logo Banner -->
+<div class="p-space-sm bg-surface-container flex flex-wrap items-center justify-around gap-space-md opacity-75">
+<span class="font-headline-md text-headline-md uppercase text-on-surface tracking-wider">COTTECCONS</span>
+<span class="font-headline-md text-headline-md uppercase text-on-surface tracking-wider">HOA BINH CORP</span>
+<span class="font-headline-md text-headline-md uppercase text-on-surface tracking-wider">VINACONEX</span>
+<span class="font-headline-md text-headline-md uppercase text-on-surface tracking-wider">DELTA GROUP</span>
+<span class="font-headline-md text-headline-md uppercase text-on-surface tracking-wider">UNIONSIONS</span>
+</div>
+</div>
+</section>
+<!-- SECTION 7: STICKY FLOATING ACTION BAR & EMERGENCY DISPATCH HOTLINE -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-inverse-surface/95 text-inverse-on-surface shadow-[0_-4px_20px_rgba(0,0,0,0.3)] backdrop-blur-sm">
+<div class="max-w-[1440px] mx-auto px-margin lg:px-margin-desktop py-space-xs flex flex-wrap items-center justify-between gap-space-xs">
+<!-- Live Status Indicator -->
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-full bg-primary animate-ping"></span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm uppercase text-primary-fixed leading-tight">Direct Dispatch Line Available</span>
+<span class="font-label-data-dim text-label-data-dim text-secondary-fixed-dim uppercase">Average phone queue &lt; 15 seconds • 24/7 Operations</span>
+</div>
+</div>
+<!-- Action Buttons Pair -->
+<div class="flex items-center gap-space-sm">
+<!-- Phone Call Button (Terracotta Orange) -->
+<a class="inline-flex items-center gap-space-xs px-space-md py-space-xs bg-primary hover:bg-primary-container text-on-primary transition-colors shadow-md" href="tel:19005888">
+<span class="material-symbols-outlined text-[20px] animate-bounce">call</span>
+<div class="flex flex-col text-left">
+<span class="font-headline-sm text-headline-sm uppercase leading-none">Call Dispatch: 1900-5888</span>
+<span class="font-label-data-dim text-label-data-dim text-primary-fixed uppercase leading-none mt-0.5">Urgent Jobsite Deliveries</span>
+</div>
+</a>
+<!-- Zalo Chat Button (High Contrast Blue) -->
+<a class="inline-flex items-center gap-space-xs px-space-md py-space-xs bg-[#0068FF] hover:bg-[#0052cc] text-white transition-colors shadow-md" href="https://zalo.me" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<div class="flex flex-col text-left">
+<span class="font-headline-sm text-headline-sm uppercase leading-none">Chat Zalo Direct</span>
+<span class="font-label-data-dim text-label-data-dim text-secondary-fixed uppercase leading-none mt-0.5">Báo Giá Nhanh Qua Zalo (PDF)</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- INTERACTIVE CONSOLE SCRIPTS -->
+<script>
+  // Freight Calculator Interactive Logic
+  const brickSelect = document.getElementById('brick-select');
+  const qtySlider = document.getElementById('qty-slider');
+  const brickQty = document.getElementById('brick-qty');
+  const zoneSelect = document.getElementById('zone-select');
+  const fleetRadios = document.querySelectorAll('input[name="fleet_mode"]');
+  const weightBadge = document.getElementById('selected-weight-badge');
+  const palletCountLabel = document.getElementById('pallet-count-label');
+
+  const calcMaterial = document.getElementById('calc-material');
+  const calcWeight = document.getElementById('calc-weight');
+  const calcFreight = document.getElementById('calc-freight');
+  const calcCrane = document.getElementById('calc-crane');
+  const calcGrandTotal = document.getElementById('calc-grand-total');
+  const calcPerPc = document.getElementById('calc-per-pc');
+
+  function updateCalculations() {
+    const selectedOption = brickSelect.options[brickSelect.selectedIndex];
+    const unitPrice = parseFloat(brickSelect.value);
+    const unitWeight = parseFloat(selectedOption.getAttribute('data-weight'));
+    const quantity = parseInt(brickQty.value) || 0;
+    const distanceKm = parseFloat(zoneSelect.value);
+    
+    let isCrane = true;
+    fleetRadios.forEach(r => {
+      if (r.checked && r.value === 'flatbed') isCrane = false;
+    });
+
+    // Update weight label
+    weightBadge.textContent = unitWeight.toFixed(2) + " KG / UNIT";
+
+    // Pallets estimation (~750 pcs per pallet avg)
+    const pallets = Math.ceil(quantity / 750);
+    palletCountLabel.textContent = pallets;
+
+    // Weight in Metric Tons
+    const totalTons = (quantity * unitWeight) / 1000;
+
+    // Material Subtotal
+    const materialSubtotal = quantity * unitPrice;
+
+    // Freight calculation ($6.50 base + $2.10/km per 10-ton block)
+    const truckloads = Math.max(1, Math.ceil(totalTons / 15));
+    const freightCost = (distanceKm * 2.25 * truckloads) + (truckloads * 45);
+
+    // Crane fee
+    const craneFee = isCrane ? (truckloads * 45) : 0;
+
+    // Grand total
+    const grandTotal = materialSubtotal + freightCost + craneFee;
+    const perPc = grandTotal / quantity;
+
+    // Display formatted
+    calcMaterial.textContent = '$' + materialSubtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    calcWeight.textContent = totalTons.toFixed(2) + ' Metric Tons';
+    calcFreight.textContent = '$' + freightCost.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    calcCrane.textContent = isCrane ? '$' + craneFee.toFixed(2) : '$0.00 (Self-Offload)';
+    calcGrandTotal.textContent = '$' + grandTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    calcPerPc.textContent = '$' + perPc.toFixed(3) + ' / PC';
+  }
+
+  // Bind inputs
+  qtySlider.addEventListener('input', (e) => {
+    brickQty.value = e.target.value;
+    updateCalculations();
+  });
+
+  brickQty.addEventListener('input', (e) => {
+    qtySlider.value = e.target.value;
+    updateCalculations();
+  });
+
+  brickSelect.addEventListener('change', updateCalculations);
+  zoneSelect.addEventListener('change', updateCalculations);
+  fleetRadios.forEach(r => r.addEventListener('change', updateCalculations));
+
+  // Quick Action helper from Product Cards
+  window.addFreightItem = function(name, price, weight) {
+    for (let i = 0; i < brickSelect.options.length; i++) {
+      if (parseFloat(brickSelect.options[i].value) === price) {
+        brickSelect.selectedIndex = i;
+        break;
+      }
+    }
+    updateCalculations();
+    const target = document.getElementById('freight-calc');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  window.lockQuote = function() {
+    alert("DISPATCH ENGINE: Freight Rate locked for 4 hours. Connecting to central dispatcher via hotline 1900-5888...");
+  };
+
+  // Run initial calculation
+  updateCalculations();
+</script></main><footer class="w-full bg-surface-container-low mt-space-xl pt-space-xl pb-space-lg"><div class="max-w-[1440px] mx-auto px-margin lg:px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg mb-space-xl"><div class="flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm"><img alt="Kiln &amp; Haul Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UTnwqGLyib4WBq-F1ttuA_tVoBRYRFpKlEbv0u1X5CFr_76SB9etVa-lv0W0yt2ZZxDa4AVZGa89IwAhH-pyjr58TacXZHdywiBOtr3dnFvI4ERcvemgT-eG2ocgHIC5ONzQO-XTeYCeUWYOIW5_YUWJaUS4ZRf_a6q0WCGL8pIYZultwBy5gmPrdwD5c2lgojs7SlBnUxvfAi6R0xYbiO3aumegtOrckHvmJB7BbAE84WUySVX1BlL-w"/><span class="font-headline-md text-headline-md uppercase text-on-surface">Kiln &amp; Haul</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Commercial-grade masonry procurement, quarry-to-foundation logistics, and high-capacity direct fleet distribution across domestic construction corridors.</p><div class="flex items-center gap-space-xs mt-space-xs"><span class="font-label-badge text-label-badge uppercase px-space-xs py-space-xs bg-surface-container-highest text-on-surface">DOT CERT #948210</span><span class="font-label-badge text-label-badge uppercase px-space-xs py-space-xs bg-surface-container-highest text-on-surface">ICC-MC 581902</span></div></div><div class="flex flex-col gap-space-xs"><span class="font-headline-sm text-headline-sm uppercase text-on-surface mb-space-xs">Direct Kiln Network</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><strong>Kiln Yard Alpha:</strong> Red Clay Basins, Ohio Valley</li><li><strong>Kiln Yard Bravo:</strong> Architectural Shale Works, PA</li><li><strong>Kiln Yard Charlie:</strong> Vitrified Paver Core, Indiana</li><li><strong>Quarry Terminal:</strong> Heavy Aggregate Terminal, WV</li></ul></div><div class="flex flex-col gap-space-xs"><span class="font-headline-sm text-headline-sm uppercase text-on-surface mb-space-xs">Logistics Fleet Hubs</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li>Moffett Piggyback Fleet: 180 Active Units</li><li>Boom Crane Direct Drop: 95 High-Reach Units</li><li>Heavy Flatbed Tri-Axles: 320 Dedicated Haulers</li><li>Live GPS Job-Site Geofenced Tracking</li></ul></div><div class="flex flex-col gap-space-xs"><span class="font-headline-sm text-headline-sm uppercase text-on-surface mb-space-xs">Procurement Desk</span><div class="p-space-sm bg-surface-container flex flex-col gap-space-xs"><span class="font-label-technical text-label-technical text-on-surface">DISPATCH HOTLINE: 1900-5888</span><span class="font-body-sm text-body-sm text-on-surface-variant">Standard Orders: Mon-Sat 05:00 - 19:00 EST</span><span class="font-body-sm text-body-sm text-on-surface-variant">Emergency Job-Site Runs: 24/7 Monitored</span><span class="font-label-data-dim text-label-data-dim text-primary">guaranteed 4-hour drop window</span></div></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-wrap items-center gap-space-md"><span class="font-label-technical text-label-technical text-on-surface-variant">© 2025 KILN &amp; HAUL DIRECT BRICK LOGISTICS LLC.</span><a class="font-label-data-dim text-label-data-dim text-on-surface-variant hover:text-on-surface" data-path="wholesale-compliance" href="#">ASTM &amp; DOT COMPLIANCE</a><a class="font-label-data-dim text-label-data-dim text-on-surface-variant hover:text-on-surface" data-path="haulage-tariffs" href="#">FREIGHT TARIFFS</a><a class="font-label-data-dim text-label-data-dim text-on-surface-variant hover:text-on-surface" data-path="driver-safety" href="#">HAZMAT &amp; CRANE SAFETY</a></div><span class="font-label-data-dim text-label-data-dim text-on-surface-variant uppercase">HEAVY MATERIALS PROCUREMENT ARCHITECTURE</span></div></div></footer></body></html>
