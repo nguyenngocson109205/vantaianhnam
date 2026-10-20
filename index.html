@@ -91,7 +91,7 @@
       border: 1px solid #E2E8F0;
     }
   </style>
-  <link rel="stylesheet" href="/mobile.css" />
+  <link rel="stylesheet" href="./public/mobile.css" />
 </head>
 <body class="bg-surface text-on-surface antialiased pb-32">
 
@@ -163,7 +163,7 @@
 
         <!-- Hero Visual Showcase Image -->
         <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-md group">
-          <img src="/assets/images/brick-delivery.jpg" width="1536" height="1024" fetchpriority="high" alt="Ảnh minh họa xe cẩu giao gạch tại bãi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <img src="./public/assets/images/brick-delivery.jpg" width="1536" height="1024" fetchpriority="high" alt="Ảnh minh họa xe cẩu giao gạch tại bãi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
           <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent flex flex-col justify-end p-3 text-white">
             <span class="text-[10px] font-mono uppercase tracking-wider bg-brick px-2 py-0.5 rounded self-start font-bold">
               ĐỘI XE CẨU HẠ HÀNG TẬN SÀN
@@ -670,7 +670,7 @@
             unit: "viên",
             tag: "Bán Chạy Nhất",
             tagColor: "bg-emerald-700",
-            image: "/assets/aistudio/Image_4_43079f22.jpeg",
+            image: "./public/assets/aistudio/Image_4_43079f22.jpeg",
             specs: [
               { label: "Quy cách", value: "8 × 8 × 18 cm (1.35 kg/v)" },
               { label: "Cường độ nén", value: "Mác M75 - M100 Tiêu Chuẩn" },
@@ -689,7 +689,7 @@
             unit: "viên",
             tag: "Tiết Kiệm Công Cắt",
             tagColor: "bg-amber-600",
-            image: "/assets/aistudio/Image_5_5ec95612.jpeg",
+            image: "./public/assets/aistudio/Image_5_5ec95612.jpeg",
             specs: [
               { label: "Kích thước", value: "8 × 8 × 9 cm (0.7 kg/v)" },
               { label: "Lợi ích thợ", value: "Tăng tốc độ xây 20%, không hao hụt chèn góc" },
@@ -721,7 +721,7 @@
             unit: "viên",
             tag: "Giá Miệng Lò Rẻ",
             tagColor: "bg-brick",
-            image: "/assets/aistudio/Image_4_43079f22.jpeg",
+            image: "./public/assets/aistudio/Image_4_43079f22.jpeg",
             specs: [
               { label: "Quy cách", value: "8 × 8 × 18 cm (1.30 kg/v)" },
               { label: "Đặc tính", value: "Đất sét dẻo mịn nung già, màu đỏ sẫm đồng đều" },
@@ -739,7 +739,7 @@
             unit: "viên",
             tag: "Chuẩn Kích Thước",
             tagColor: "bg-indigo-600",
-            image: "/assets/aistudio/Image_5_5ec95612.jpeg",
+            image: "./public/assets/aistudio/Image_5_5ec95612.jpeg",
             specs: [
               { label: "Kích thước", value: "8 × 8 × 9 cm (0.68 kg/v)" },
               { label: "Ưu điểm", value: "Giảm hao hụt cắt gạch, vuông vắn tuyệt đối" }
@@ -770,7 +770,7 @@
             unit: "viên",
             tag: "Mác Cao M100+",
             tagColor: "bg-slate-800",
-            image: "/assets/aistudio/Image_3_d36ecabb.jpeg",
+            image: "./public/assets/aistudio/Image_3_d36ecabb.jpeg",
             specs: [
               { label: "Kích thước", value: "6 × 10.5 × 21 cm (2.1 kg/v)" },
               { label: "Cường độ nén", value: "Mác M100 - M150 siêu chịu tải" },
@@ -789,7 +789,7 @@
             unit: "viên",
             tag: "Gạch Đanh Lửa",
             tagColor: "bg-brick",
-            image: "/assets/aistudio/Image_4_43079f22.jpeg",
+            image: "./public/assets/aistudio/Image_4_43079f22.jpeg",
             specs: [
               { label: "Quy cách", value: "8 × 8 × 18 cm (1.38 kg/v)" },
               { label: "Nhiệt độ nung", value: "1.050°C tiếng gõ đanh thanh ngân" }
@@ -820,7 +820,7 @@
             unit: "viên",
             tag: "Cách Âm Tốt",
             tagColor: "bg-teal-800",
-            image: "/assets/images/six-hole.jpg",
+            image: "./public/assets/images/six-hole.jpg",
             specs: [
               { label: "Kích thước", value: "19.5 × 13.5 × 9 cm (2.75 kg/v)" },
               { label: "Khả năng", value: "Giảm 45% tiếng ồn & chống nóng tường bao" },
@@ -852,7 +852,7 @@
             unit: "viên",
             tag: "M250 Siêu Tải Trọng",
             tagColor: "bg-slate-900",
-            image: "/assets/images/paver.jpg",
+            image: "./public/assets/images/paver.jpg",
             specs: [
               { label: "Kích thước", value: "10 × 20 × 6 cm (3.1 kg/v)" },
               { label: "Cường độ nén", value: "M250 công nghiệp, chịu xe container" },
@@ -1219,7 +1219,7 @@
       const img = event.target;
       if (img instanceof HTMLImageElement && !img.dataset.fallback) {
         img.dataset.fallback = 'true';
-        img.src = '/assets/images/fallback.svg';
+        img.src = './public/assets/images/fallback.svg';
         img.classList.add('image-fallback');
       }
     }, true);

@@ -7,6 +7,7 @@ http.createServer((req, res) => {
   let url;
   try { url = decodeURIComponent(new URL(req.url, 'http://localhost').pathname); }
   catch { res.writeHead(400).end(); return; }
+  if (url.startsWith('/public/')) url = url.slice('/public'.length);
   if (url !== '/' && url !== '/index.html' && url !== '/mobile.css' && url !== '/scripts/mobile-preview.html' && !url.startsWith('/assets/')) {
     res.writeHead(404).end('Not found'); return;
   }

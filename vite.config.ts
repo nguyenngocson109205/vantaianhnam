@@ -5,7 +5,20 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss()],
+    base: './',
+    plugins: [
+      // Source HTML is also published directly by GitHub Pages (main / root).
+      // Vite serves/copies public contents at its web root, so adapt those paths.
+      {
+        name: 'public-paths-for-vite',
+        transformIndexHtml: {
+          order: 'pre',
+          handler: (html) => html.replaceAll('./public/', './'),
+        },
+      },
+      react(),
+      tailwindcss(),
+    ],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
